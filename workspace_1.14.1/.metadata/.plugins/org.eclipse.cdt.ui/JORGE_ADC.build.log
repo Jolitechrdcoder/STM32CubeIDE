@@ -1,0 +1,17 @@
+15:22:18 **** Incremental Build of configuration Debug for project JORGE_ADC ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "JORGE_ADC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\JORGE_ADC\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="JORGE_ADC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: JORGE_ADC.elf
+ 
+arm-none-eabi-size  JORGE_ADC.elf 
+arm-none-eabi-objdump -h -S JORGE_ADC.elf  > "JORGE_ADC.list"
+   text	   data	    bss	    dec	    hex	filename
+  41736	    476	   2220	  44432	   ad90	JORGE_ADC.elf
+Finished building: default.size.stdout
+ 
+Finished building: JORGE_ADC.list
+ 
+
+15:22:19 Build Finished. 0 errors, 0 warnings. (took 1s.124ms)
+
