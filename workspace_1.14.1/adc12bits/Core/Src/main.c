@@ -31,7 +31,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define voltaje 3.3
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -105,7 +105,7 @@ int main(void)
   while (1)
   {
 
-	  Volt =(medicion/4096.0)*3.3;
+	  Volt =(medicion/4096.0)*voltaje;
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
