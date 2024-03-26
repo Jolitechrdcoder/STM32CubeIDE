@@ -1,0 +1,24 @@
+17:58:15 **** Incremental Build of configuration Debug for project parcial2_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:120:46: warning: ' Voltios' directive writing 8 bytes into a region of size between 0 and 7 [-Wformat-overflow=]
+  120 |              sprintf(voltString, "%.2f Voltios", Volt);
+      |                                       ~~~~~~~^
+../Core/Src/main.c:120:14: note: 'sprintf' output between 12 and 322 bytes into a destination of size 10
+  120 |              sprintf(voltString, "%.2f Voltios", Volt);
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "parcial2_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\parcial2_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="parcial2_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: parcial2_escarlina.elf
+ 
+arm-none-eabi-size  parcial2_escarlina.elf 
+arm-none-eabi-objdump -h -S parcial2_escarlina.elf  > "parcial2_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  41184	    476	   2284	  43944	   aba8	parcial2_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: parcial2_escarlina.list
+ 
+
+17:58:16 Build Finished. 0 errors, 1 warnings. (took 1s.15ms)
+

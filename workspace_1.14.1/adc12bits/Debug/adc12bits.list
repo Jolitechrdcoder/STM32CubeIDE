@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_rnglists 00000a9e  00000000  00000000  00032b30  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  000284b6  00000000  00000000  000335ce  2**0
+ 17 .debug_macro  000284bc  00000000  00000000  000335ce  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0000ff10  00000000  00000000  0005ba84  2**0
+ 18 .debug_line   0000ff10  00000000  00000000  0005ba8a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000fc92d  00000000  00000000  0006b994  2**0
+ 19 .debug_str    000fc939  00000000  00000000  0006b99a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  00004ed0  00000000  00000000  001682c4  2**2
+ 20 .debug_frame  00004ed0  00000000  00000000  001682d4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000076  00000000  00000000  0016d194  2**0
+ 21 .debug_line_str 00000076  00000000  00000000  0016d1a4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1370,7 +1370,7 @@ int main(void)
   while (1)
   {
 
-	  Volt =(medicion/4096.0)*3.3;
+	  Volt =(medicion/4096.0)*voltaje;
  8001016:	4b10      	ldr	r3, [pc, #64]	; (8001058 <main+0x68>)
  8001018:	681b      	ldr	r3, [r3, #0]
  800101a:	4618      	mov	r0, r3
