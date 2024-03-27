@@ -156,13 +156,16 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 void Medir_ADC()
 {
 
-	HAL_ADC_Start(&hadc1); // inicio mi adc
-	HAL_ADC_PollForConversion(&hadc1, 100);
+	HAL_ADC_Start(&hadc1); // start the adc
+	HAL_ADC_PollForConversion(&hadc1, 100); // poll for conversion
 
-	Medida_ADC = HAL_ADC_GetValue(&hadc1); // obtengo el valor de mi adc
-	HAL_ADC_Stop(&hadc1); // detengo la lectura
+	Medida_ADC = HAL_ADC_GetValue(&hadc1); // get the adc value
+	HAL_ADC_Stop(&hadc1); // start the adc
 }
+void Mostrar_Data()
+{
 
+}
 /* USER CODE END 0 */
 
 /**
