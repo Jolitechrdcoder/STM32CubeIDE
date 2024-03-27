@@ -1,3 +1,4 @@
+MemberFilterActionGroup.COutlineViewer.1=true
 asm_directive=221,40,103
 asm_label=217,232,247
 buildConsoleBackgroundColor=47,47,47
@@ -27,6 +28,11 @@ overriddenByCSS=,asm_directive,asm_label,c_braces,c_comment_task_tag,c_default,c
 pp_default=217,232,247
 pp_directive=221,40,103
 pp_header=23,198,163
+scalability.contentAssistAutoActivation=true
+scalability.enableAll=true
+scalability.parserBasedContentAssist=true
+scalability.semanticHighlight=true
+scalability.syntaxColor=true
 semanticHighlighting.class.bold=true
 semanticHighlighting.class.color=18,144,195
 semanticHighlighting.class.enabled=true
