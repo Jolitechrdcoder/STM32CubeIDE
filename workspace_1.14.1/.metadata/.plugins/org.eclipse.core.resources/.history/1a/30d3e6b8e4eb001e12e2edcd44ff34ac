@@ -37,12 +37,9 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-#define Timer 	    10 //Tiempo de la interrupcion
-#define Time_LCD    500//Tiempo requerido en ms
-#define Time_keypad 250
-#define Time_ADC    100
-#define Time_matriz 750
-#define Time_sonic  1000
+#define Timer 	   10 //Tiempo de la interrupcion
+#define Time_LCD   500//Tiempo requerido en ms
+#define Time_ADC   100
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -58,10 +55,7 @@ UART_HandleTypeDef huart2;
 struct FLAGS
 {
 	unsigned int LCD2:1;
-	unsigned int KEYPAD:1;
 	unsigned int ADC:1;
-	unsigned int MATRIZ:1;
-	unsigned int SONIC:1;
 }FLAG;
 uint32_t Medida_ADC;
 /* USER CODE END PV */
@@ -81,12 +75,10 @@ static void MX_I2C1_Init(void);
 /* USER CODE BEGIN 0 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	static unsigned int Count_LCD=0,Count_KEY=0,Count_ADC=0,Count_MATRIZ=0,Count_SONIC=0;
+	static unsigned int Count_LCD=0,Count_ADC=0;
 
 	if(htim->Instance==htim3.Instance)
 	{
-
-	//LDC
 	if(Count_LCD<(Time_LCD/Timer))//Calculo para designar el tiempo(Tiempo en ms entre Tiempo de la interrupcion en ms)
 	{
 		Count_LCD++;
@@ -97,20 +89,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		FLAG.LCD2=1;
 	}
 
-	//KEYPAD
-	if(Count_KEY<(Time_keypad/Timer))//Calculo para designar el tiempo(Tiempo en ms entre Tiempo de la interrupcion en ms)
-		{
-			Count_KEY++;
-		}
-		else
-		{
-			Count_KEY=0;
-			FLAG.KEYPAD=1;
-		}
-
-
-
-	//ADC
 	if(Count_ADC<(Time_ADC/Timer))
 	{
 		Count_ADC++;
@@ -120,33 +98,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		Count_ADC=0;
 		FLAG.ADC=1;
 	}
-
-
-	//MATRIZ
-	if(Count_MATRIZ<(Time_matriz/Timer))
-	{
-		Count_MATRIZ++;
-	}
-	else
-	{
-		Count_MATRIZ=0;
-		FLAG.MATRIZ=1;
-	}
-
-	//ULTRASONICO
-	if(Count_SONIC<(Time_sonic/Timer))
-	{
-		Count_SONIC++;
-	}
-	else
-	{
-		Count_SONIC=0;
-		FLAG.SONIC=1;
-	}
-
-
-
-
 	}
 
 
@@ -160,7 +111,7 @@ void Medir_ADC()
 	HAL_ADC_PollForConversion(&hadc1, 100); // poll for conversion
 
 	Medida_ADC = HAL_ADC_GetValue(&hadc1); // get the adc value
-	HAL_ADC_Stop(&hadc1); // start the adc
+	  HAL_ADC_Stop(&hadc1); // start the adc
 }
 void Mostrar_Data()
 {
