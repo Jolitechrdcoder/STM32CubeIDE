@@ -1,0 +1,10 @@
+17:40:36 **** Incremental Build of configuration Debug for project okis1 ****
+make -j8 all 
+arm-none-eabi-size  okis1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27984	    104	   6368	  34456	   8698	okis1.elf
+Finished building: default.size.stdout
+ 
+
+17:40:37 Build Finished. 0 errors, 0 warnings. (took 353ms)
+
