@@ -223,7 +223,35 @@ int main(void)
 			  lcd_enviar_int(Medida_ADC,0,0);
 			  FLAG.LCD2=0;
 		  }
+	  //keypad code here
+//	  if (FLAG.KEYPAD)
+//	  	  	  {
+//
+////	  	  		su codigo
+//
+//	  	  		FLAG.KEYPAD=0;
+//
+//	  	  	}
 
+	  //matriz code here
+//	  if (FLAG.Matriz)
+//	  	  	  {
+//
+////	  	  		su codigo
+//
+//	  	  		FLAG.Matriz=0;
+//
+//	  	  	}
+
+	  //ultrasonico code here
+//	  if (FLAG.SONIC)
+//	  	  	  {
+//
+////	  	  		su codigo
+//
+//	  	  		FLAG.SONIC=0;
+//
+//	  	  	}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
