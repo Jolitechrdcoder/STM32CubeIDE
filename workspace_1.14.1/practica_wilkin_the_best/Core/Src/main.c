@@ -36,9 +36,12 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-#define Time 10 // tiempo de interrupcion
-#define Time_lcd 500 // tiempos requeridos
-#define Time_adc 100
+#define Timer 	    10 //Tiempo de la interrupcion
+#define Time_LCD    500//Tiempo requerido en ms
+#define Time_keypad 250
+#define Time_ADC    100
+#define Time_matriz 750
+#define Time_sonic  1000
 //#define Time_keypad 250
 //#define Time_matriz 750
 //#define Time_sonic 1000
@@ -49,6 +52,7 @@ ADC_HandleTypeDef hadc1;
 
 I2C_HandleTypeDef hi2c1;
 
+TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 
 UART_HandleTypeDef huart2;
@@ -57,12 +61,12 @@ UART_HandleTypeDef huart2;
 struct FLAGS
 {
 	unsigned int LCD2:1;
-//	unsigned int KEYPAD:1;
+	unsigned int KEYPAD:1;
 	unsigned int ADC:1;
-//	unsigned int Matriz:1;
-//	unsigned int SONIC:1;
+	unsigned int MATRIZ:1;
+	unsigned int SONIC:1;
 }FLAG;
-uint32_t MEDIDA_ADC;
+uint32_t Medida_ADC;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -72,74 +76,95 @@ static void MX_USART2_UART_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void HAL_TIM_PeriodElapseCallback(TIM_HandleTypeDef *htim){
-	static unsigned int Count_lcd=0,Count_adc=0/*,Count_keypad=0,Count_matriz=0,Count_sonic=0*/;
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	static unsigned int Count_LCD=0,Count_KEY=0,Count_ADC=0,Count_MATRIZ=0,Count_SONIC=0;
 
-	if (htim->Instance == htim2.Instance) {
-		//LCD
-		if (Count_lcd<Time_lcd/Time) {
-			Count_lcd++;
+	if(htim->Instance==htim2.Instance)
+	{
+
+	//LDC
+	if(Count_LCD<(Time_LCD/Timer))//Calculo para designar el tiempo(Tiempo en ms entre Tiempo de la interrupcion en ms)
+	{
+		Count_LCD++;
+	}
+	else
+	{
+		Count_LCD=0;
+		FLAG.LCD2=1;
+	}
+
+	//KEYPAD
+	if(Count_KEY<(Time_keypad/Timer))//Calculo para designar el tiempo(Tiempo en ms entre Tiempo de la interrupcion en ms)
+		{
+			Count_KEY++;
 		}
 		else
 		{
-			Count_lcd=0;
-			FLAG.LCD2=1;
+			Count_KEY=0;
+			FLAG.KEYPAD=1;
 		}
 
-		//ADC
-		if (Count_adc<Time_adc/Time) {
-					Count_adc++;
-				}
-				else
-				{
-					Count_adc=0;
-					FLAG.ADC=1;
-				}
 
-//		//keypad
-//				if (Count_keypad<Time_keypad /Time) {
-//							Count_keypad++;
-//				}
-//				else
-//				{
-//				Count_keypad=0;
-//				FLAG.KEYPAD=1;
-//				}
-//
-//		//matriz
-//				if (Count_matriz<Time_matriz /Time) {
-//					Count_matriz++;
-//				}
-//				else
-//				{
-//				Count_matriz=0;
-//				FLAG.Matriz=1;
-//				}
-//
-//		//Ultrasonic sensor
-//				if (Count_sonic<Time_sonic /Time) {
-//					Count_sonic++;
-//					}
-//				else
-//				{
-//				Count_sonic=0;
-//				FLAG.SONIC=1;
-//				}
+
+	//ADC
+	if(Count_ADC<(Time_ADC/Timer))
+	{
+		Count_ADC++;
+	}
+	else
+	{
+		Count_ADC=0;
+		FLAG.ADC=1;
+	}
+
+
+	//MATRIZ
+	if(Count_MATRIZ<(Time_matriz/Timer))
+	{
+		Count_MATRIZ++;
+	}
+	else
+	{
+		Count_MATRIZ=0;
+		FLAG.MATRIZ=1;
+	}
+
+	//ULTRASONICO
+	if(Count_SONIC<(Time_sonic/Timer))
+	{
+		Count_SONIC++;
+	}
+	else
+	{
+		Count_SONIC=0;
+		FLAG.SONIC=1;
+	}
+
+
+
 
 	}
+
+
+
 }
 
-void MEDIR_ADC(){
-	HAL_ADC_Start(&hadc1);
+void Medir_ADC()
+{
+
+	HAL_ADC_Start(&hadc1); // inicio mi adc
 	HAL_ADC_PollForConversion(&hadc1, 100);
-	MEDIDA_ADC = HAL_ADC_GetValue(&hadc1);
-	HAL_ADC_Stop(&hadc1);
+
+	Medida_ADC = HAL_ADC_GetValue(&hadc1); // obtengo el valor de mi adc
+	HAL_ADC_Stop(&hadc1); // detengo la lectura
 }
 /* USER CODE END 0 */
 
@@ -175,32 +200,29 @@ int main(void)
   MX_ADC1_Init();
   MX_I2C1_Init();
   MX_TIM2_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-    HAL_TIM_Base_Start_IT(&htim2);
-    lcd_init();
-    lcd_enviar("ok", 0,2);
+  HAL_TIM_Base_Start_IT(&htim2);
+
+   lcd_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  //adc code here
-	  if (FLAG.ADC)
-	  {
-		FLAG.ADC=0;
-		MEDIR_ADC();
-	}
+	  if(FLAG.ADC)
+		  {
+			  FLAG.ADC=0;
+			  Medir_ADC();
+		  }
 
-	  //lcd code here
-	  if (FLAG.LCD2)
-	  	  {
-
-	  		lcd_clear();
-	  		lcd_enviar_int(MEDIDA_ADC, 0, 0);
-	  		FLAG.LCD2=0;
-
-	  	}
+		  if(FLAG.LCD2)
+		  {
+			  lcd_clear();
+			  lcd_enviar_int(Medida_ADC,0,0);
+			  FLAG.LCD2=0;
+		  }
 	  //keypad code here
 //	  if (FLAG.KEYPAD)
 //	  	  	  {
@@ -276,8 +298,10 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_I2C1|RCC_PERIPHCLK_ADC1;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_I2C1|RCC_PERIPHCLK_TIM1
+                              |RCC_PERIPHCLK_ADC1;
   PeriphClkInit.I2c1ClockSelection = RCC_I2C1CLKSOURCE_HSI;
+  PeriphClkInit.Tim1ClockSelection = RCC_TIM1CLK_HCLK;
   PeriphClkInit.Adc1ClockSelection = RCC_ADC1PLLCLK_DIV1;
 
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
@@ -388,6 +412,53 @@ static void MX_I2C1_Init(void)
   /* USER CODE BEGIN I2C1_Init 2 */
 
   /* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
+  * @brief TIM1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM1_Init(void)
+{
+
+  /* USER CODE BEGIN TIM1_Init 0 */
+
+  /* USER CODE END TIM1_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM1_Init 1 */
+
+  /* USER CODE END TIM1_Init 1 */
+  htim1.Instance = TIM1;
+  htim1.Init.Prescaler = 0;
+  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim1.Init.Period = 65535;
+  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim1.Init.RepetitionCounter = 0;
+  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM1_Init 2 */
+
+  /* USER CODE END TIM1_Init 2 */
 
 }
 

@@ -1,49 +1,21 @@
-20:42:33 **** Incremental Build of configuration Debug for project practica_wilkin2times ****
+21:14:33 **** Incremental Build of configuration Debug for project practica_wilkin_the_best ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica_wilkin2times.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica_wilkin2times\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica_wilkin2times.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica_wilkin2times.elf
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "practica_wilkin_the_best.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica_wilkin_the_best\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica_wilkin_the_best.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: practica_wilkin_the_best.elf
  
-arm-none-eabi-size  practica_wilkin2times.elf 
-arm-none-eabi-objdump -h -S practica_wilkin2times.elf  > "practica_wilkin2times.list"
+arm-none-eabi-size  practica_wilkin_the_best.elf 
+arm-none-eabi-objdump -h -S practica_wilkin_the_best.elf  > "practica_wilkin_the_best.list"
    text	   data	    bss	    dec	    hex	filename
-  28284	    104	   6376	  34764	   87cc	practica_wilkin2times.elf
+  23720	    100	   2380	  26200	   6658	practica_wilkin_the_best.elf
 Finished building: default.size.stdout
  
-Finished building: practica_wilkin2times.list
+Finished building: practica_wilkin_the_best.list
  
-20:42:40 **** Incremental Build of configuration Debug for project practica_wilkin2times ****
+21:14:40 **** Incremental Build of configuration Debug for project practica_wilkin_the_best ****
 make -j8 all 
-arm-none-eabi-size  practica_wilkin2times.elf 
+arm-none-eabi-size  practica_wilkin_the_best.elf 
    text	   data	    bss	    dec	    hex	filename
-  28284	    104	   6376	  34764	   87cc	practica_wilkin2times.elf
+  23720	    100	   2380	  26200	   6658	practica_wilkin_the_best.elf
 Finished building: default.size.stdout
- 
-20:46:09 **** Incremental Build of configuration Debug for project practica_wilkin2times ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica_wilkin2times.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica_wilkin2times\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica_wilkin2times.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica_wilkin2times.elf
- 
-arm-none-eabi-size  practica_wilkin2times.elf 
-arm-none-eabi-objdump -h -S practica_wilkin2times.elf  > "practica_wilkin2times.list"
-   text	   data	    bss	    dec	    hex	filename
-  28284	    104	   6376	  34764	   87cc	practica_wilkin2times.elf
-Finished building: default.size.stdout
- 
-Finished building: practica_wilkin2times.list
- 
-20:51:55 **** Incremental Build of configuration Debug for project practica_wilkin2times ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica_wilkin2times.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica_wilkin2times\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica_wilkin2times.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica_wilkin2times.elf
- 
-arm-none-eabi-size  practica_wilkin2times.elf 
-arm-none-eabi-objdump -h -S practica_wilkin2times.elf  > "practica_wilkin2times.list"
-   text	   data	    bss	    dec	    hex	filename
-  28364	    104	   6400	  34868	   8834	practica_wilkin2times.elf
-Finished building: default.size.stdout
- 
-Finished building: practica_wilkin2times.list
  
