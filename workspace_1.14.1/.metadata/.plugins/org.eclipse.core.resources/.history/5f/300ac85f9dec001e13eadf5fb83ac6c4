@@ -75,12 +75,6 @@ void Startsonic2(void const * argument);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 uint32_t medicion;
-int count_matriz =0;
-int count_keypad =0;
-int count_adc =0;
-int count_lcd =0;
-int count_sonic =0;
-
 void Medir_ADC()
 {
 
@@ -426,9 +420,7 @@ void Startadc2(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-
 	 Medir_ADC();
-	 count_adc++;
     osDelay(100);
   }
   /* USER CODE END 5 */
@@ -447,7 +439,6 @@ void Startlcd2(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    count_lcd++;
 	  lcd_clear();
 	  lcd_enviar_int(medicion,0,0);
     osDelay(100);
@@ -468,8 +459,7 @@ void Startkeypad2(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-  count_keypad++;
-    osDelay(100);
+    osDelay(1);
   }
   /* USER CODE END Startkeypad2 */
 }
@@ -487,9 +477,7 @@ void Startmatriz2(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-
-	  count_matriz++;
-    osDelay(100);
+    osDelay(1);
   }
   /* USER CODE END Startmatriz2 */
 }
@@ -507,8 +495,7 @@ void Startsonic2(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	  count_sonic++;
-    osDelay(100);
+    osDelay(1);
   }
   /* USER CODE END Startsonic2 */
 }
