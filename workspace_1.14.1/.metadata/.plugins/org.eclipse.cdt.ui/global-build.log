@@ -1,51 +1,21 @@
-17:40:24 **** Incremental Build of configuration Debug for project okis1 ****
+20:42:33 **** Incremental Build of configuration Debug for project practica_wilkin2times ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/lcdjorge.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/lcdjorge.d" -MT"Core/Src/lcdjorge.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/lcdjorge.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32f3xx_hal_timebase_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f3xx_hal_timebase_tim.d" -MT"Core/Src/stm32f3xx_hal_timebase_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f3xx_hal_timebase_tim.o"
-arm-none-eabi-gcc "../Core/Src/stm32f3xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f3xx_it.d" -MT"Core/Src/stm32f3xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f3xx_it.o"
-arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
-arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
-arm-none-eabi-gcc "../Core/Src/system_stm32f3xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f3xx.d" -MT"Core/Src/system_stm32f3xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f3xx.o"
-../Core/Src/lcdjorge.c: In function 'lcd_barrido':
-../Core/Src/lcdjorge.c:44:19: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
-   44 |         int len = strlen(message);
-      |                   ^~~~~~
-../Core/Src/lcdjorge.c:5:1: note: include '<string.h>' or provide a declaration of 'strlen'
-    4 | #include "lcdjorge.h"
-  +++ |+#include <string.h>
-    5 | extern I2C_HandleTypeDef hi2c1;  // change your handler here accordingly
-../Core/Src/lcdjorge.c:44:19: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
-   44 |         int len = strlen(message);
-      |                   ^~~~~~
-../Core/Src/lcdjorge.c:44:19: note: include '<string.h>' or provide a declaration of 'strlen'
-../Core/Src/lcdjorge.c: In function 'lcd_enviar_int':
-../Core/Src/lcdjorge.c:70:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
-   70 |     sprintf(buffer, "%d", numero);
-      |     ^~~~~~~
-../Core/Src/lcdjorge.c:5:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-    4 | #include "lcdjorge.h"
-  +++ |+#include <stdio.h>
-    5 | extern I2C_HandleTypeDef hi2c1;  // change your handler here accordingly
-../Core/Src/lcdjorge.c:70:5: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
-   70 |     sprintf(buffer, "%d", numero);
-      |     ^~~~~~~
-../Core/Src/lcdjorge.c:70:5: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-arm-none-eabi-gcc -o "okis1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\okis1\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="okis1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: okis1.elf
+arm-none-eabi-gcc -o "practica_wilkin2times.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica_wilkin2times\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica_wilkin2times.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: practica_wilkin2times.elf
  
-arm-none-eabi-size  okis1.elf 
-arm-none-eabi-objdump -h -S okis1.elf  > "okis1.list"
+arm-none-eabi-size  practica_wilkin2times.elf 
+arm-none-eabi-objdump -h -S practica_wilkin2times.elf  > "practica_wilkin2times.list"
    text	   data	    bss	    dec	    hex	filename
-  27984	    104	   6368	  34456	   8698	okis1.elf
+  28284	    104	   6376	  34764	   87cc	practica_wilkin2times.elf
 Finished building: default.size.stdout
  
-Finished building: okis1.list
+Finished building: practica_wilkin2times.list
  
-17:40:36 **** Incremental Build of configuration Debug for project okis1 ****
+20:42:40 **** Incremental Build of configuration Debug for project practica_wilkin2times ****
 make -j8 all 
-arm-none-eabi-size  okis1.elf 
+arm-none-eabi-size  practica_wilkin2times.elf 
    text	   data	    bss	    dec	    hex	filename
-  27984	    104	   6368	  34456	   8698	okis1.elf
+  28284	    104	   6376	  34764	   87cc	practica_wilkin2times.elf
 Finished building: default.size.stdout
  

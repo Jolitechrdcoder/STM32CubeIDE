@@ -1,0 +1,10 @@
+20:42:40 **** Incremental Build of configuration Debug for project practica_wilkin2times ****
+make -j8 all 
+arm-none-eabi-size  practica_wilkin2times.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28284	    104	   6376	  34764	   87cc	practica_wilkin2times.elf
+Finished building: default.size.stdout
+ 
+
+20:42:40 Build Finished. 0 errors, 0 warnings. (took 406ms)
+
