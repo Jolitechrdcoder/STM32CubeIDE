@@ -1,0 +1,8 @@
+../Core/Src/main.c:66:6:enviar	1
+../Core/Src/main.c:79:5:main	1
+../Core/Src/main.c:135:6:SystemClock_Config	4
+../Core/Src/main.c:185:13:MX_ADC1_Init	4
+../Core/Src/main.c:252:13:MX_USART2_UART_Init	2
+../Core/Src/main.c:285:13:MX_DMA_Init	1
+../Core/Src/main.c:303:13:MX_GPIO_Init	1
+../Core/Src/main.c:343:6:Error_Handler	1

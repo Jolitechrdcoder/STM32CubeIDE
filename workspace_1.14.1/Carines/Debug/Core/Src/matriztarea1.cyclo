@@ -1,0 +1,12 @@
+../Core/Src/matriztarea1.c:139:6:write_byte	2
+../Core/Src/matriztarea1.c:151:6:write_max_cmd	2
+../Core/Src/matriztarea1.c:164:6:setled	4
+../Core/Src/matriztarea1.c:189:6:setrow	4
+../Core/Src/matriztarea1.c:218:6:write_char	2
+../Core/Src/matriztarea1.c:233:6:scroll_char	7
+../Core/Src/matriztarea1.c:270:6:shift_char	5
+../Core/Src/matriztarea1.c:302:6:scroll_string	2
+../Core/Src/matriztarea1.c:313:6:max_clear	3
+../Core/Src/matriztarea1.c:327:6:shiftleft	3
+../Core/Src/matriztarea1.c:345:6:shiftright	3
+../Core/Src/matriztarea1.c:365:6:max_init	1

@@ -1,5 +1,2 @@
-FLAG
-Count_LCD
-Count_ADC
-x
-Medida_ADC
+samples_adc
+Volt

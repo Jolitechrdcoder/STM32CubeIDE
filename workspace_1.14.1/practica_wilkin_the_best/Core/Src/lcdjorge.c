@@ -1,6 +1,6 @@
 
 /** Put this in the src folder **/
-
+#include"string.h"
 #include "lcdjorge.h"
 extern I2C_HandleTypeDef hi2c1;  // change your handler here accordingly
 

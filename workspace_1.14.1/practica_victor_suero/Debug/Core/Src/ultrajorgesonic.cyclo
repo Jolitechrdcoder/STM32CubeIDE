@@ -1,0 +1,2 @@
+../Core/Src/ultrajorgesonic.c:15:6:ultrasonido_init	1
+../Core/Src/ultrajorgesonic.c:20:10:ultrasonido_medir_distancia	6
