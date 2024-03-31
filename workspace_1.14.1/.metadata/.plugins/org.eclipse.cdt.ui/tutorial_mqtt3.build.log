@@ -1,0 +1,10 @@
+15:31:40 **** Incremental Build of configuration Debug for project tutorial_mqtt3 ****
+make -j8 all 
+arm-none-eabi-size  tutorial_mqtt3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18604	    100	   2188	  20892	   519c	tutorial_mqtt3.elf
+Finished building: default.size.stdout
+ 
+
+15:31:41 Build Finished. 0 errors, 0 warnings. (took 314ms)
+
