@@ -22,6 +22,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "lcdjorge.h"
+#include "math.h"
+#include"string.h"
+#include"stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -40,9 +43,13 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+DAC_HandleTypeDef hdac;
+DMA_HandleTypeDef hdma_dac_ch1;
+
 I2C_HandleTypeDef hi2c1;
 
 TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim6;
 
 UART_HandleTypeDef huart2;
 
@@ -51,29 +58,197 @@ uint32_t counter = 0;
 int16_t count = 0;
 int16_t position = 0;
 int Estado=0;
+int menu1=0;
+int submenu1=0;
+int submenu2=0;
+int submenu3=0;
+int submenu4=0;
 int tiempo = 1000;
+float amplitud;
+float freq_div = 0.2f;
+uint32_t onda_seno[100];
+uint32_t onda_sierra[100];
+#define PI 3.1415926 // constante
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_DAC_Init(void);
+static void MX_TIM6_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+
+void ondaseno()
+{
+
+	for (int x = 0; x < 100; x++)
+	    {
+	        onda_seno[x] = ((sin(x * 2 * PI / 100) + 1) * (amplitud * 4096 / 2));
+	    }
+
+
+}
+void ondasierra()
+{
+
+	for (int y = 0; y < 100; y++)
+	    {
+	        onda_sierra[y] = (y * (amplitud*4096 / 100)); // calculo onda sierra
+	    }
+
+}
+void buzzer(void){
+HAL_GPIO_WritePin(buxx_GPIO_Port, buxx_Pin, 1);
+HAL_Delay(10);
+HAL_GPIO_WritePin(buxx_GPIO_Port, buxx_Pin, 0);
+}
+
+void enviar(uint32_t valor){
+
+	 char buffer[20];
+	    sprintf(buffer, "%lu\r\n", valor);
+
+	    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
+}
+
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 {
     counter = __HAL_TIM_GET_COUNTER(htim);
     count = (int16_t)counter;
     position = count / 4;
+
+}
+
+void lectura_boton(void){
+	if(!HAL_GPIO_ReadPin(bton_GPIO_Port, bton_Pin)){
+					menu1++;
+					buzzer();
+					HAL_Delay(600);
+				}
+}
+
+void menu_senoidal(void){
+	 lcd_enviar("   Sell Onda   ", 0, 0);
+			  lcd_enviar("1.Senoidal    <<", 1, 0);
+			lectura_boton();
+
 }
 
 
+void menu_sierra(void){
+	lcd_enviar("   Sell Onda   ", 0, 0);
+	lcd_enviar("2.Sierra    <<", 1, 0);
+	lectura_boton();
+}
+
+
+void menu_cuadrada(void){
+	lcd_enviar("   Sell Onda   ", 0, 0);
+	lcd_enviar("3.Cuadrada    <<", 1, 0);
+	lectura_boton();
+}
+
+
+void menu_triangular(void){
+	lectura_boton();
+	 lcd_enviar("   Sell Onda   ", 0, 0);
+	 lcd_enviar("4.Triangular   <<", 1, 0);
+
+}
+
+
+void subMenu1(void){
+	 lcd_enviar("  Sell amplitud", 0, 0);
+	 lcd_enviar("Amplitud (+,-)", 1, 0);
+	 HAL_DAC_Stop_DMA(&hdac, DAC_CHANNEL_1);
+	 HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1,onda_seno,100, DAC_ALIGN_12B_R);
+
+	 for(int i=0; i<100; i++){
+
+
+
+	 			   DAC->DHR12R1 = onda_seno[i];
+	 			   HAL_Delay(8);
+	 			   enviar(onda_seno[i]);
+	 		   }
+
+	 if(!HAL_GPIO_ReadPin(bton_GPIO_Port, bton_Pin)){
+		       submenu1++;
+		       buzzer();
+	 					HAL_Delay(600);
+	 }
+	 if(submenu1 == 2){
+		 menu_senoidal();
+		 submenu1 =0;
+		 menu1=0;
+	 }
+	 lectura_boton();
+}
+void subMenu2(void){
+	 lcd_enviar("  Sell amplitud", 0, 0);
+	 lcd_enviar("Amplitud (+,-)", 1, 0);
+	 HAL_DAC_Stop_DMA(&hdac, DAC_CHANNEL_1);
+	 	 HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1,onda_sierra,100, DAC_ALIGN_12B_R);
+
+	 	 for(int i=0; i<100; i++){
+
+
+
+	 	 			   DAC->DHR12R1 = onda_sierra[i];
+	 	 			   HAL_Delay(8);
+	 	 			   enviar(onda_sierra[i]);
+	 	 		   }
+
+	 if(!HAL_GPIO_ReadPin(bton_GPIO_Port, bton_Pin)){
+			       submenu2++;
+			       buzzer();
+		 			HAL_Delay(600);
+		 }
+		 if(submenu2 == 2){
+			 menu_sierra();
+			 submenu2 =0;
+			 menu1=0;
+		 }
+		 lectura_boton();
+}
+void subMenu3(void){
+	 lcd_enviar("  Sell amplitud", 0, 0);
+	 lcd_enviar("Amplitud (+,-)", 1, 0);
+	 if(!HAL_GPIO_ReadPin(bton_GPIO_Port, bton_Pin)){
+				       submenu3++;
+				       buzzer();
+			 			HAL_Delay(600);
+			 }
+			 if(submenu3 == 2){
+				 menu_cuadrada();
+				 submenu3 =0;
+				 menu1=0;
+			 }
+}
+void subMenu4(void){
+	 lcd_enviar("  Sell amplitud", 0, 0);
+	 lcd_enviar("Amplitud (+,-)", 1, 0);
+	 if(!HAL_GPIO_ReadPin(bton_GPIO_Port, bton_Pin)){
+	 				       submenu4++;
+	 				       buzzer();
+	 			 			HAL_Delay(600);
+	 			 }
+	 			 if(submenu4 == 2){
+	 				 menu_triangular();
+	 				 submenu4 =0;
+	 				 menu1=0;
+	 			 }
+}
 /* USER CODE END 0 */
 
 /**
@@ -104,55 +279,62 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_USART2_UART_Init();
   MX_I2C1_Init();
   MX_TIM2_Init();
+  MX_DAC_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
+
     lcd_init();
+
     HAL_TIM_Encoder_Start_IT(&htim2, TIM_CHANNEL_ALL);
+    HAL_TIM_Base_Start(&htim6);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
-
-
 	  switch(position)
 	  {
-	  case 1:
-		  lcd_enviar("Estado0", 0, 0);
 
+	  case 0:
+		 menu_senoidal();
+	  break;
+	  case 1:
+		  menu_sierra();
 	  break;
 	  case 2:
-	  	  lcd_enviar("Estado1", 0, 0);
+	 	  menu_cuadrada();
+	  break;
+	  case 3:
+	 	  menu_triangular();
 	  break;
 
 	  }
-//
-//   if(Estado ==0)
-//   {
-//	   lcd_enviar("Estado0", 0, 0);
-//	   int btn=0;
-//	   if (!HAL_GPIO_ReadPin(bton_GPIO_Port, bton_Pin)) {
-//	           btn++;
-//	           HAL_Delay(600);
-//	       }
-//
-//	   if(btn ==1){
-//		   Estado =1;
-//
-//	   }
-//	   if(btn>=4) btn=0;
-//   }
-//   else if(Estado == 1)
-//   {
-//	   lcd_clear();
-//	   lcd_enviar("senoidal", 0, 0);
-//	   HAL_Delay(tiempo);
-//	   Estado =0;
-//   }
+	  amplitud = (float)position * 0.01f; // Ajustar este valor según tus necesidades
+	  ondaseno();
+	     ondasierra();
+	  switch (menu1)
+	  {
+	  case 1:
+		 subMenu1();
+	  break;
+	  case 2:
+	  	 subMenu2();
+	  break;
+	  case 3:
+	  	 subMenu3();
+	  break;
+	  case 4:
+	  	 subMenu4();
+	  break;
+
+
+	  }
+
 
     /* USER CODE END WHILE */
   }
@@ -206,6 +388,46 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief DAC Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_DAC_Init(void)
+{
+
+  /* USER CODE BEGIN DAC_Init 0 */
+
+  /* USER CODE END DAC_Init 0 */
+
+  DAC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN DAC_Init 1 */
+
+  /* USER CODE END DAC_Init 1 */
+
+  /** DAC Initialization
+  */
+  hdac.Instance = DAC;
+  if (HAL_DAC_Init(&hdac) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** DAC channel OUT1 config
+  */
+  sConfig.DAC_Trigger = DAC_TRIGGER_T6_TRGO;
+  sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
+  if (HAL_DAC_ConfigChannel(&hdac, &sConfig, DAC_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN DAC_Init 2 */
+
+  /* USER CODE END DAC_Init 2 */
+
 }
 
 /**
@@ -306,6 +528,44 @@ static void MX_TIM2_Init(void)
 }
 
 /**
+  * @brief TIM6 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM6_Init(void)
+{
+
+  /* USER CODE BEGIN TIM6_Init 0 */
+
+  /* USER CODE END TIM6_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM6_Init 1 */
+
+  /* USER CODE END TIM6_Init 1 */
+  htim6.Instance = TIM6;
+  htim6.Init.Prescaler = 72-1;
+  htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim6.Init.Period = 100;
+  htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim6, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM6_Init 2 */
+
+  /* USER CODE END TIM6_Init 2 */
+
+}
+
+/**
   * @brief USART2 Initialization Function
   * @param None
   * @retval None
@@ -341,6 +601,22 @@ static void MX_USART2_UART_Init(void)
 }
 
 /**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Channel3_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel3_IRQn);
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -358,7 +634,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(buxx_GPIO_Port, buxx_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -366,12 +642,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LD2_Pin */
-  GPIO_InitStruct.Pin = LD2_Pin;
+  /*Configure GPIO pin : buxx_Pin */
+  GPIO_InitStruct.Pin = buxx_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(buxx_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : bton_Pin */
   GPIO_InitStruct.Pin = bton_Pin;

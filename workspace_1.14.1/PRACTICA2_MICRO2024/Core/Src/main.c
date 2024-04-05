@@ -314,7 +314,7 @@ int main(void)
 	  break;
 
 	  }
-	  amplitud = (float)position * 0.01f; // Ajustar este valor según tus necesidades
+	  amplitud = (float)position * 0.01f;
 	  ondaseno();
 	     ondasierra();
 	  switch (menu1)
