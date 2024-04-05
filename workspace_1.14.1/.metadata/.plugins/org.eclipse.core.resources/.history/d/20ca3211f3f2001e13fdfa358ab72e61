@@ -1,0 +1,41 @@
+/*
+ * encoder_jorge.c
+ *
+ *  Created on: Apr 4, 2024
+ *      Author: mecat
+ */
+
+#include "encoder_jorge.h"
+
+int counter=0;
+void encoder_loop(void){
+
+	if (HAL_GPIO_ReadPin(a_1_GPIO_Port, a_1_Pin) == GPIO_PIN_RESET)
+		  {
+	          if (HAL_GPIO_ReadPin(b_2_GPIO_Port, b_2_Pin) == GPIO_PIN_RESET)
+	              {
+	        	  while(HAL_GPIO_ReadPin(b_2_GPIO_Port, b_2_Pin) == GPIO_PIN_RESET){};
+				   counter--;
+				  while(HAL_GPIO_ReadPin(a_1_GPIO_Port, a_1_Pin) == GPIO_PIN_RESET){};
+				  HAL_Delay(10);
+			      }
+
+
+
+
+	          if (HAL_GPIO_ReadPin(b_2_GPIO_Port, b_2_Pin) == GPIO_PIN_SET)
+	                        {
+	                  	  while(HAL_GPIO_ReadPin(b_2_GPIO_Port, b_2_Pin) == GPIO_PIN_SET){};
+	          			   counter++;
+	          			  while(HAL_GPIO_ReadPin(a_1_GPIO_Port, a_1_Pin) == GPIO_PIN_RESET){};
+	          			 while(HAL_GPIO_ReadPin(b_2_GPIO_Port, b_2_Pin) == GPIO_PIN_RESET){};
+
+	          			  HAL_Delay(10);
+	          		      }
+	          if (counter<0) counter =0;
+	          if (counter>20) counter =20;
+
+
+		  }
+}
+
