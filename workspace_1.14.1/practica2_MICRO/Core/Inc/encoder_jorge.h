@@ -6,3 +6,4 @@
  */
 
 void encoder_loop(void);
+void buzz(void);

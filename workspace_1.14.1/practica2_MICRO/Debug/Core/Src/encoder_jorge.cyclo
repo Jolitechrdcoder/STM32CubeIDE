@@ -1,1 +1,2 @@
-../Core/Src/encoder_jorge.c:8:6:encoder_loop	10
+../Core/Src/encoder_jorge.c:10:6:buzz	1
+../Core/Src/encoder_jorge.c:17:6:encoder_loop	10

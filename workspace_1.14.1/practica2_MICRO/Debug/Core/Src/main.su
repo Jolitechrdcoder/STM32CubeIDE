@@ -1,6 +1,8 @@
-../Core/Src/main.c:77:5:main	8	static
-../Core/Src/main.c:136:6:SystemClock_Config	120	static
-../Core/Src/main.c:184:13:MX_I2C1_Init	8	static
-../Core/Src/main.c:232:13:MX_USART2_UART_Init	8	static
-../Core/Src/main.c:267:13:MX_GPIO_Init	48	static
-../Core/Src/main.c:313:6:Error_Handler	4	static,ignoring_inline_asm
+../Core/Src/main.c:73:6:leer_btn	8	static
+../Core/Src/main.c:84:6:mostrar_menu	8	static
+../Core/Src/main.c:94:5:main	8	static
+../Core/Src/main.c:171:6:SystemClock_Config	120	static
+../Core/Src/main.c:219:13:MX_I2C1_Init	8	static
+../Core/Src/main.c:267:13:MX_USART2_UART_Init	8	static
+../Core/Src/main.c:302:13:MX_GPIO_Init	48	static
+../Core/Src/main.c:364:6:Error_Handler	4	static,ignoring_inline_asm

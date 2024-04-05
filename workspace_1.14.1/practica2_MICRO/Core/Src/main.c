@@ -62,12 +62,29 @@ static void MX_I2C1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-extern int counter;
-
+// Definiciones de las opciones del menú
 char opciones[][50] = {"1.Seno", "2.Cuad", "3.Sier","4.Tria"};
+int max_opciones = sizeof(opciones) / sizeof(opciones[0]);
+// Declaración externa de la variable counter
+extern int counter;
+int count2 = 0;
 
-int max_opciones = sizeof(opciones)/sizeof(opciones[0]); // aqui lo que hago es optener  los elementos de mi arreglo
-//int estado = counter;
+// Función para leer el estado del botón y actualizar el contador
+void leer_btn(void) {
+    if (!HAL_GPIO_ReadPin(btn_GPIO_Port, btn_Pin)) {
+        count2++;
+        HAL_Delay(600);
+    }
+    if (count2 >= 3) {
+        count2 = 0;
+    }
+}
+
+// Función para mostrar el menú actual en la pantalla LCD
+void mostrar_menu(void) {
+    lcd_put_cur(1, 0);
+    lcd_send_string(opciones[counter]);
+}
 /* USER CODE END 0 */
 
 /**
@@ -103,6 +120,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 lcd_init();
 lcd_enviar("Generador Ondas", 0,0);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -112,20 +130,37 @@ lcd_enviar("Generador Ondas", 0,0);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  encoder_loop();
+	   // Lógica para leer el encoder y el botón
+      leer_btn();
+      encoder_loop();
 
-    if( counter<0)  counter = max_opciones - 1;
-    if( counter> max_opciones - 1)  counter =0;
+      // Mostrar el menú principal
+      mostrar_menu();
 
-    lcd_put_cur(1, 0);
-    lcd_send_string(opciones[counter]);
-    lcd_put_cur(1, 6);
-    lcd_send_string(" <<Option");
-
-
-
-
-  }
+      // Si se presiona el botón, manejar la acción correspondiente
+      if (count2 == 1) {
+          // Manejar la acción según la opción seleccionada
+          switch (counter) {
+              case 0:
+                  // Acción para la opción 1 (Seno)
+                  // Por ejemplo, mostrar un submenú
+                  lcd_enviar("                 ", 1, 0);
+                  lcd_enviar("Senoide          ", 0, 0);
+                  lcd_enviar("Amplitud +  -", 1, 0);
+                  break;
+              case 1:
+                  // Acción para la opción 2 (Cuad)
+                  lcd_enviar("                 ", 1, 0);
+                  lcd_enviar("Cuadrada         ", 0, 0);
+                  lcd_enviar("Amplitud +  -", 1, 0);
+                  break;
+              // Añade más casos según sea necesario para las otras opciones
+              default:
+                  break;
+          }
+          HAL_Delay(200); // Espera para evitar rebotes del botón
+      }
+      }
   /* USER CODE END 3 */
 }
 
@@ -277,7 +312,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(buzzer_GPIO_Port, buzzer_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -285,25 +320,41 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : btn_Pin PB4 PB5 */
-  GPIO_InitStruct.Pin = btn_Pin|GPIO_PIN_4|GPIO_PIN_5;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  /*Configure GPIO pin : btn_Pin */
+  GPIO_InitStruct.Pin = btn_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(btn_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LD2_Pin */
-  GPIO_InitStruct.Pin = LD2_Pin;
+  /*Configure GPIO pin : buzzer_Pin */
+  GPIO_InitStruct.Pin = buzzer_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(buzzer_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PB4 PB5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
-
+//void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+//{
+//  counterOutside++; //For testing only
+//  currentMillis = HAL_GetTick();
+//  if (GPIO_Pin == btn_Pin && (currentMillis - previousMillis > 10))
+//  {
+//    counterInside++; //For testing only
+//
+//    previousMillis = currentMillis;
+//  }
+//}
 /* USER CODE END 4 */
 
 /**

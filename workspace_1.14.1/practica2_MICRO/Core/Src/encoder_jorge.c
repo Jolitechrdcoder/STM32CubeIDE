@@ -4,7 +4,16 @@
 #define maxport GPIOB
 #define a1 GPIO_PIN_4
 #define b1 GPIO_PIN_5
+#define buzzer GPIO_PIN_13
 int counter=0;
+
+void buzz(void){
+	HAL_GPIO_WritePin(maxport, buzzer, 1);
+	HAL_Delay(10);
+	HAL_GPIO_WritePin(maxport, buzzer, 0);
+
+}
+
 void encoder_loop(void){
 
 	if (HAL_GPIO_ReadPin(maxport, a1) == GPIO_PIN_RESET)
@@ -24,6 +33,7 @@ void encoder_loop(void){
 	                        {
 	                  	  while(HAL_GPIO_ReadPin(maxport, b1) == GPIO_PIN_SET){};
 	          			   counter++;
+	          			   buzz();
 	          			  while(HAL_GPIO_ReadPin(maxport, a1) == GPIO_PIN_RESET){};
 	          			 while(HAL_GPIO_ReadPin(maxport, b1) == GPIO_PIN_RESET){};
 

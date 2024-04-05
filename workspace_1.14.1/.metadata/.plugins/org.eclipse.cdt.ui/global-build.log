@@ -1,203 +1,105 @@
-23:43:46 **** Incremental Build of configuration Debug for project practica2_MICRO ****
+19:44:41 **** Incremental Build of configuration Debug for project PRACTICA2_MICRO2024 ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica2_MICRO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica2_MICRO\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica2_MICRO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica2_MICRO.elf
+arm-none-eabi-gcc -o "PRACTICA2_MICRO2024.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\PRACTICA2_MICRO2024\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PRACTICA2_MICRO2024.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PRACTICA2_MICRO2024.elf
  
-arm-none-eabi-size  practica2_MICRO.elf 
-arm-none-eabi-objdump -h -S practica2_MICRO.elf  > "practica2_MICRO.list"
+arm-none-eabi-size  PRACTICA2_MICRO2024.elf 
+arm-none-eabi-objdump -h -S PRACTICA2_MICRO2024.elf  > "PRACTICA2_MICRO2024.list"
    text	   data	    bss	    dec	    hex	filename
-  14248	    224	   1792	  16264	   3f88	practica2_MICRO.elf
+  30544	    104	   3192	  33840	   8430	PRACTICA2_MICRO2024.elf
 Finished building: default.size.stdout
  
-Finished building: practica2_MICRO.list
+Finished building: PRACTICA2_MICRO2024.list
  
-23:44:04 **** Incremental Build of configuration Debug for project practica2_MICRO ****
+19:44:45 **** Incremental Build of configuration Debug for project PRACTICA2_MICRO2024 ****
 make -j8 all 
-arm-none-eabi-size  practica2_MICRO.elf 
+arm-none-eabi-size  PRACTICA2_MICRO2024.elf 
    text	   data	    bss	    dec	    hex	filename
-  14248	    224	   1792	  16264	   3f88	practica2_MICRO.elf
+  30544	    104	   3192	  33840	   8430	PRACTICA2_MICRO2024.elf
 Finished building: default.size.stdout
  
-23:44:46 **** Incremental Build of configuration Debug for project practica2_MICRO ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica2_MICRO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica2_MICRO\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica2_MICRO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica2_MICRO.elf
- 
-arm-none-eabi-size  practica2_MICRO.elf 
-arm-none-eabi-objdump -h -S practica2_MICRO.elf  > "practica2_MICRO.list"
-   text	   data	    bss	    dec	    hex	filename
-  14248	    224	   1792	  16264	   3f88	practica2_MICRO.elf
-Finished building: default.size.stdout
- 
-Finished building: practica2_MICRO.list
- 
-23:45:51 **** Incremental Build of configuration Debug for project practica2_MICRO ****
+19:46:20 **** Incremental Build of configuration Debug for project PRACTICA2_MICRO2024 ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica2_MICRO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica2_MICRO\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica2_MICRO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica2_MICRO.elf
+arm-none-eabi-gcc -o "PRACTICA2_MICRO2024.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\PRACTICA2_MICRO2024\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PRACTICA2_MICRO2024.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PRACTICA2_MICRO2024.elf
  
-arm-none-eabi-size  practica2_MICRO.elf 
-arm-none-eabi-objdump -h -S practica2_MICRO.elf  > "practica2_MICRO.list"
+arm-none-eabi-size  PRACTICA2_MICRO2024.elf 
+arm-none-eabi-objdump -h -S PRACTICA2_MICRO2024.elf  > "PRACTICA2_MICRO2024.list"
    text	   data	    bss	    dec	    hex	filename
-  14308	    224	   1792	  16324	   3fc4	practica2_MICRO.elf
+  30544	    104	   3192	  33840	   8430	PRACTICA2_MICRO2024.elf
 Finished building: default.size.stdout
  
-Finished building: practica2_MICRO.list
+Finished building: PRACTICA2_MICRO2024.list
  
-23:46:29 **** Incremental Build of configuration Debug for project practica2_MICRO ****
+19:48:06 **** Incremental Build of configuration Debug for project PRACTICA2_MICRO2024 ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica2_MICRO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica2_MICRO\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica2_MICRO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica2_MICRO.elf
+arm-none-eabi-gcc -o "PRACTICA2_MICRO2024.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\PRACTICA2_MICRO2024\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PRACTICA2_MICRO2024.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PRACTICA2_MICRO2024.elf
  
-arm-none-eabi-size  practica2_MICRO.elf 
-arm-none-eabi-objdump -h -S practica2_MICRO.elf  > "practica2_MICRO.list"
+arm-none-eabi-size  PRACTICA2_MICRO2024.elf 
+arm-none-eabi-objdump -h -S PRACTICA2_MICRO2024.elf  > "PRACTICA2_MICRO2024.list"
    text	   data	    bss	    dec	    hex	filename
-  14308	    224	   1792	  16324	   3fc4	practica2_MICRO.elf
+  30528	    104	   3192	  33824	   8420	PRACTICA2_MICRO2024.elf
 Finished building: default.size.stdout
  
-Finished building: practica2_MICRO.list
+Finished building: PRACTICA2_MICRO2024.list
  
-23:47:24 **** Incremental Build of configuration Debug for project practica2_MICRO ****
+19:49:05 **** Incremental Build of configuration Debug for project PRACTICA2_MICRO2024 ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica2_MICRO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica2_MICRO\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica2_MICRO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica2_MICRO.elf
+arm-none-eabi-gcc -o "PRACTICA2_MICRO2024.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\PRACTICA2_MICRO2024\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PRACTICA2_MICRO2024.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PRACTICA2_MICRO2024.elf
  
-arm-none-eabi-size  practica2_MICRO.elf 
-arm-none-eabi-objdump -h -S practica2_MICRO.elf  > "practica2_MICRO.list"
+arm-none-eabi-size  PRACTICA2_MICRO2024.elf 
+arm-none-eabi-objdump -h -S PRACTICA2_MICRO2024.elf  > "PRACTICA2_MICRO2024.list"
    text	   data	    bss	    dec	    hex	filename
-  14308	    224	   1792	  16324	   3fc4	practica2_MICRO.elf
+  30536	    104	   3192	  33832	   8428	PRACTICA2_MICRO2024.elf
 Finished building: default.size.stdout
  
-Finished building: practica2_MICRO.list
+Finished building: PRACTICA2_MICRO2024.list
  
-23:48:00 **** Incremental Build of configuration Debug for project practica2_MICRO ****
+19:50:17 **** Incremental Build of configuration Debug for project PRACTICA2_MICRO2024 ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica2_MICRO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica2_MICRO\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica2_MICRO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica2_MICRO.elf
+arm-none-eabi-gcc -o "PRACTICA2_MICRO2024.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\PRACTICA2_MICRO2024\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PRACTICA2_MICRO2024.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PRACTICA2_MICRO2024.elf
  
-arm-none-eabi-size  practica2_MICRO.elf 
-arm-none-eabi-objdump -h -S practica2_MICRO.elf  > "practica2_MICRO.list"
+arm-none-eabi-size  PRACTICA2_MICRO2024.elf 
+arm-none-eabi-objdump -h -S PRACTICA2_MICRO2024.elf  > "PRACTICA2_MICRO2024.list"
    text	   data	    bss	    dec	    hex	filename
-  14308	    224	   1792	  16324	   3fc4	practica2_MICRO.elf
+  30536	    100	   3196	  33832	   8428	PRACTICA2_MICRO2024.elf
 Finished building: default.size.stdout
  
-Finished building: practica2_MICRO.list
+Finished building: PRACTICA2_MICRO2024.list
  
-23:48:49 **** Incremental Build of configuration Debug for project practica2_MICRO ****
+19:51:41 **** Incremental Build of configuration Debug for project PRACTICA2_MICRO2024 ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica2_MICRO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica2_MICRO\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica2_MICRO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica2_MICRO.elf
+arm-none-eabi-gcc -o "PRACTICA2_MICRO2024.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\PRACTICA2_MICRO2024\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PRACTICA2_MICRO2024.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PRACTICA2_MICRO2024.elf
  
-arm-none-eabi-size  practica2_MICRO.elf 
-arm-none-eabi-objdump -h -S practica2_MICRO.elf  > "practica2_MICRO.list"
+arm-none-eabi-size  PRACTICA2_MICRO2024.elf 
+arm-none-eabi-objdump -h -S PRACTICA2_MICRO2024.elf  > "PRACTICA2_MICRO2024.list"
    text	   data	    bss	    dec	    hex	filename
-  14360	    224	   1792	  16376	   3ff8	practica2_MICRO.elf
+  30536	    100	   3196	  33832	   8428	PRACTICA2_MICRO2024.elf
 Finished building: default.size.stdout
  
-Finished building: practica2_MICRO.list
+Finished building: PRACTICA2_MICRO2024.list
  
-23:49:31 **** Incremental Build of configuration Debug for project practica2_MICRO ****
+19:52:23 **** Incremental Build of configuration Debug for project PRACTICA2_MICRO2024 ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica2_MICRO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica2_MICRO\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica2_MICRO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica2_MICRO.elf
+arm-none-eabi-gcc -o "PRACTICA2_MICRO2024.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\PRACTICA2_MICRO2024\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PRACTICA2_MICRO2024.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PRACTICA2_MICRO2024.elf
  
-arm-none-eabi-size  practica2_MICRO.elf 
-arm-none-eabi-objdump -h -S practica2_MICRO.elf  > "practica2_MICRO.list"
+arm-none-eabi-size  PRACTICA2_MICRO2024.elf 
+arm-none-eabi-objdump -h -S PRACTICA2_MICRO2024.elf  > "PRACTICA2_MICRO2024.list"
    text	   data	    bss	    dec	    hex	filename
-  14368	    224	   1792	  16384	   4000	practica2_MICRO.elf
+  30528	    100	   3196	  33824	   8420	PRACTICA2_MICRO2024.elf
 Finished building: default.size.stdout
  
-Finished building: practica2_MICRO.list
- 
-23:50:05 **** Incremental Build of configuration Debug for project practica2_MICRO ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica2_MICRO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica2_MICRO\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica2_MICRO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica2_MICRO.elf
- 
-arm-none-eabi-size  practica2_MICRO.elf 
-arm-none-eabi-objdump -h -S practica2_MICRO.elf  > "practica2_MICRO.list"
-   text	   data	    bss	    dec	    hex	filename
-  14368	    224	   1792	  16384	   4000	practica2_MICRO.elf
-Finished building: default.size.stdout
- 
-Finished building: practica2_MICRO.list
- 
-23:51:02 **** Incremental Build of configuration Debug for project practica2_MICRO ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica2_MICRO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica2_MICRO\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica2_MICRO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica2_MICRO.elf
- 
-arm-none-eabi-size  practica2_MICRO.elf 
-arm-none-eabi-objdump -h -S practica2_MICRO.elf  > "practica2_MICRO.list"
-   text	   data	    bss	    dec	    hex	filename
-  14308	    224	   1792	  16324	   3fc4	practica2_MICRO.elf
-Finished building: default.size.stdout
- 
-Finished building: practica2_MICRO.list
- 
-23:52:17 **** Incremental Build of configuration Debug for project practica2_MICRO ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica2_MICRO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica2_MICRO\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica2_MICRO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica2_MICRO.elf
- 
-arm-none-eabi-size  practica2_MICRO.elf 
-arm-none-eabi-objdump -h -S practica2_MICRO.elf  > "practica2_MICRO.list"
-   text	   data	    bss	    dec	    hex	filename
-  14332	    224	   1792	  16348	   3fdc	practica2_MICRO.elf
-Finished building: default.size.stdout
- 
-Finished building: practica2_MICRO.list
- 
-23:52:53 **** Incremental Build of configuration Debug for project practica2_MICRO ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica2_MICRO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica2_MICRO\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica2_MICRO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica2_MICRO.elf
- 
-arm-none-eabi-size  practica2_MICRO.elf 
-arm-none-eabi-objdump -h -S practica2_MICRO.elf  > "practica2_MICRO.list"
-   text	   data	    bss	    dec	    hex	filename
-  14332	    224	   1792	  16348	   3fdc	practica2_MICRO.elf
-Finished building: default.size.stdout
- 
-Finished building: practica2_MICRO.list
- 
-23:53:29 **** Incremental Build of configuration Debug for project practica2_MICRO ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica2_MICRO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica2_MICRO\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica2_MICRO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica2_MICRO.elf
- 
-arm-none-eabi-size  practica2_MICRO.elf 
-arm-none-eabi-objdump -h -S practica2_MICRO.elf  > "practica2_MICRO.list"
-   text	   data	    bss	    dec	    hex	filename
-  14340	    224	   1792	  16356	   3fe4	practica2_MICRO.elf
-Finished building: default.size.stdout
- 
-Finished building: practica2_MICRO.list
- 
-23:53:53 **** Incremental Build of configuration Debug for project practica2_MICRO ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "practica2_MICRO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\practica2_MICRO\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="practica2_MICRO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: practica2_MICRO.elf
- 
-arm-none-eabi-size  practica2_MICRO.elf 
-arm-none-eabi-objdump -h -S practica2_MICRO.elf  > "practica2_MICRO.list"
-   text	   data	    bss	    dec	    hex	filename
-  14340	    224	   1792	  16356	   3fe4	practica2_MICRO.elf
-Finished building: default.size.stdout
- 
-Finished building: practica2_MICRO.list
+Finished building: PRACTICA2_MICRO2024.list
  
