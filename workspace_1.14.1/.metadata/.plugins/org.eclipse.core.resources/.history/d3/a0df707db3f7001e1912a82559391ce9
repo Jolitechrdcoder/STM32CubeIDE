@@ -168,41 +168,20 @@ int main(void)
 
 	      // aqui selecciono  una fila inicial aleatoria
 	      int fila_inicial = 0; //aqui determino sonde inicia la pieza
-
-
-
 	      int columna_inicial = rand() % 6; // aqui de forma aleatoria selecciono un acolumna
-
 
 	      //aqui muestrio la pieza y la  hago descender
 	      while (fila_inicial < 8) {
-
-
 	          // aqui verifico l aposicion actual y reviso si llego al fondo de l amatriz
 	          if (fila_inicial == 8 || matriz_tablero[fila_inicial + 1][columna_inicial] != 0) {
 	              //  aqui Agrego la pieza al tablero en la fila actual
-
-	        	  for (int i = 0; i < 9; i++) {
-
+	              for (int i = 0; i < 9; i++) {
 	                  matriz_tablero[fila_inicial][columna_inicial] |= sel_piezas[i];
-
-
 	                  fila_inicial--;// aqui retrocedo un afila
 	              }
-
-
 	              break; // y salgo de mi bucle
-	          }
-
-
-
-	          else
-
-
-
-	          {
-
-	        	  // aqui muestro la pieza en la pocision actual de l amatriz
+	          } else {
+	              // aqui muestro la pieza en la pocision actual de l amatriz
 	              mostrar_pieza(sel_piezas, fila_inicial);
 
 
