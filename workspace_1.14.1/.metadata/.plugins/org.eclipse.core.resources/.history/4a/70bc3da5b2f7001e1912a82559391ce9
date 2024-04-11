@@ -22,8 +22,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include"matriztarea1.h"
-#include <stdlib.h>
-#include <time.h>
+#include <stdlib.h>  // Incluir la biblioteca estándar para usar rand() y srand()
+#include <time.h>    // Incluir la biblioteca para obtener el tiempo actual
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,9 +58,7 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-
-// aqui defino las formas de las piezas
+// Definición de las formas de las piezas
  uint8_t pieza_1[8] = {
     0b00001111
 };

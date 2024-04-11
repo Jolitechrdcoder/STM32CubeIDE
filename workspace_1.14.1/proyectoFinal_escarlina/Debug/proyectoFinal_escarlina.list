@@ -41,11 +41,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  18 .debug_line   0000a1c5  00000000  00000000  0004701d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    0009dcd5  00000000  00000000  000511e2  2**0
+ 19 .debug_str    0009dce6  00000000  00000000  000511e2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  00002618  00000000  00000000  000eeeb8  2**2
+ 20 .debug_frame  00002618  00000000  00000000  000eeec8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000084  00000000  00000000  000f14d0  2**0
+ 21 .debug_line_str 00000084  00000000  00000000  000f14e0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -140,11 +140,11 @@ Disassembly of section .text:
 
 08000270 <mostrar_pieza>:
 
- uint8_t empty_row[8] = {
+ uint8_t limpiar_fila[8] = {
     0b00000000
 };
 
- void mostrar_pieza( uint8_t piece[8], int start_row) {
+ void mostrar_pieza( uint8_t piece[8], int fila_inicial) {
  8000270:	b580      	push	{r7, lr}
  8000272:	b084      	sub	sp, #16
  8000274:	af00      	add	r7, sp, #0
@@ -154,7 +154,7 @@ Disassembly of section .text:
  800027a:	2300      	movs	r3, #0
  800027c:	60fb      	str	r3, [r7, #12]
  800027e:	e00f      	b.n	80002a0 <mostrar_pieza+0x30>
-         setrow(start_row - i, piece[i]);
+         setrow(fila_inicial - i, piece[i]);
  8000280:	683b      	ldr	r3, [r7, #0]
  8000282:	b2da      	uxtb	r2, r3
  8000284:	68fb      	ldr	r3, [r7, #12]
@@ -232,8 +232,8 @@ int main(void)
   while (1)
   {
 
-	  // Generar un número aleatorio entre 0 y 6 (inclusive) para seleccionar una pieza
-	      int random_piece = rand() % 7;
+	  //aqui lo que hago es gnerar numeros aleatorios de 0 al 7 para seleccionar piezas
+	      int piezas_ramdom = rand() % 7;
  80002de:	f002 fd87 	bl	8002df0 <rand>
  80002e2:	4602      	mov	r2, r0
  80002e4:	4b37      	ldr	r3, [pc, #220]	; (80003c4 <main+0x114>)
@@ -248,8 +248,8 @@ int main(void)
  80002f8:	1ad3      	subs	r3, r2, r3
  80002fa:	627b      	str	r3, [r7, #36]	; 0x24
 
-	      // Array de punteros a las piezas
-	      const uint8_t *pieces[] = {piece_I, piece_j, piece_L, piece_O, piece_S, piece_T, piece_Z};
+	      // apunto al array de las piezas
+	      const uint8_t *piezas[] = {pieza_1, pieza_2, pieza_3, pieza_4, pieza_5, pieza_6, pieza_7};
  80002fc:	4b32      	ldr	r3, [pc, #200]	; (80003c8 <main+0x118>)
  80002fe:	463c      	mov	r4, r7
  8000300:	461d      	mov	r5, r3
@@ -258,8 +258,8 @@ int main(void)
  8000306:	e895 0007 	ldmia.w	r5, {r0, r1, r2}
  800030a:	e884 0007 	stmia.w	r4, {r0, r1, r2}
 
-	      // Seleccionar una pieza aleatoria del array
-	      const uint8_t *selected_piece = pieces[random_piece];
+	      //  aqui selecciono una pieza aleatoria del array
+	      const uint8_t *sel_piezas = piezas[piezas_ramdom];
  800030e:	6a7b      	ldr	r3, [r7, #36]	; 0x24
  8000310:	009b      	lsls	r3, r3, #2
  8000312:	3330      	adds	r3, #48	; 0x30
@@ -267,11 +267,11 @@ int main(void)
  8000316:	f853 3c30 	ldr.w	r3, [r3, #-48]
  800031a:	623b      	str	r3, [r7, #32]
 
-	      // Seleccionar una fila inicial aleatoria
-	      int start_row = 1; // La nueva pieza siempre inicia desde la parte superior
- 800031c:	2301      	movs	r3, #1
+	      // aqui selecciono  una fila inicial aleatoria
+	      int fila_inicial = 0; //aqui determino sonde inicia la pieza
+ 800031c:	2300      	movs	r3, #0
  800031e:	62fb      	str	r3, [r7, #44]	; 0x2c
-	      int start_col = rand() % 6; // La columna inicial aleatoria (0-4)
+	      int columna_inicial = rand() % 6; // aqui de forma aleatoria selecciono un acolumna
  8000320:	f002 fd66 	bl	8002df0 <rand>
  8000324:	4602      	mov	r2, r0
  8000326:	4b29      	ldr	r3, [pc, #164]	; (80003cc <main+0x11c>)
@@ -285,11 +285,11 @@ int main(void)
  8000338:	1ad3      	subs	r3, r2, r3
  800033a:	61fb      	str	r3, [r7, #28]
 
-	      // Mostrar la pieza y hacerla descender
-	      while (start_row < 8) {
+	      //aqui muestrio la pieza y la  hago descender
+	      while (fila_inicial < 8) {
  800033c:	e039      	b.n	80003b2 <main+0x102>
-	          // Verificar si la posición actual está ocupada en el tablero o hemos alcanzado el fondo
-	          if (start_row == 8 || board[start_row + 1][start_col] != 0) {
+	          // aqui verifico l aposicion actual y reviso si llego al fondo de l amatriz
+	          if (fila_inicial == 8 || matriz_tablero[fila_inicial + 1][columna_inicial] != 0) {
  800033e:	6afb      	ldr	r3, [r7, #44]	; 0x2c
  8000340:	2b08      	cmp	r3, #8
  8000342:	d009      	beq.n	8000358 <main+0xa8>
@@ -303,12 +303,12 @@ int main(void)
  8000352:	781b      	ldrb	r3, [r3, #0]
  8000354:	2b00      	cmp	r3, #0
  8000356:	d021      	beq.n	800039c <main+0xec>
-	              // Agregar la pieza al tablero en la fila actual
+	              //  aqui Agrego la pieza al tablero en la fila actual
 	              for (int i = 0; i < 9; i++) {
  8000358:	2300      	movs	r3, #0
  800035a:	62bb      	str	r3, [r7, #40]	; 0x28
  800035c:	e01a      	b.n	8000394 <main+0xe4>
-	                  board[start_row][start_col] |= selected_piece[i];
+	                  matriz_tablero[fila_inicial][columna_inicial] |= sel_piezas[i];
  800035e:	4a1c      	ldr	r2, [pc, #112]	; (80003d0 <main+0x120>)
  8000360:	6afb      	ldr	r3, [r7, #44]	; 0x2c
  8000362:	00db      	lsls	r3, r3, #3
@@ -330,7 +330,7 @@ int main(void)
  8000382:	4413      	add	r3, r2
  8000384:	460a      	mov	r2, r1
  8000386:	701a      	strb	r2, [r3, #0]
-	                  start_row--; // Retroceder una fila
+	                  fila_inicial--;// aqui retrocedo un afila
  8000388:	6afb      	ldr	r3, [r7, #44]	; 0x2c
  800038a:	3b01      	subs	r3, #1
  800038c:	62fb      	str	r3, [r7, #44]	; 0x2c
@@ -342,27 +342,27 @@ int main(void)
  8000396:	2b08      	cmp	r3, #8
  8000398:	dde1      	ble.n	800035e <main+0xae>
 	              }
-	              break; // Salir del bucle
+	              break; // y salgo de mi bucle
  800039a:	e00d      	b.n	80003b8 <main+0x108>
 	          } else {
-	              // Mostrar la pieza en la posición actual
-	              mostrar_pieza(selected_piece, start_row);
+	              // aqui muestro la pieza en la pocision actual de l amatriz
+	              mostrar_pieza(sel_piezas, fila_inicial);
  800039c:	6af9      	ldr	r1, [r7, #44]	; 0x2c
  800039e:	6a38      	ldr	r0, [r7, #32]
  80003a0:	f7ff ff66 	bl	8000270 <mostrar_pieza>
 
-	              // Esperar un momento para simular la velocidad de descenso
+
 	              HAL_Delay(800);
  80003a4:	f44f 7048 	mov.w	r0, #800	; 0x320
  80003a8:	f000 fc52 	bl	8000c50 <HAL_Delay>
 
 
-	              // Mover la pieza una fila hacia abajo
-	              start_row++;
+	              // aqui muevo la pieza un afila hacia abajo
+	              fila_inicial++;
  80003ac:	6afb      	ldr	r3, [r7, #44]	; 0x2c
  80003ae:	3301      	adds	r3, #1
  80003b0:	62fb      	str	r3, [r7, #44]	; 0x2c
-	      while (start_row < 8) {
+	      while (fila_inicial < 8) {
  80003b2:	6afb      	ldr	r3, [r7, #44]	; 0x2c
  80003b4:	2b07      	cmp	r3, #7
  80003b6:	ddc2      	ble.n	800033e <main+0x8e>

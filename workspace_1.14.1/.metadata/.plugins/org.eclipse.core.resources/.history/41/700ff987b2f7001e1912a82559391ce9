@@ -22,8 +22,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include"matriztarea1.h"
-#include <stdlib.h>
-#include <time.h>
+#include <stdlib.h>  // Incluir la biblioteca estándar para usar rand() y srand()
+#include <time.h>    // Incluir la biblioteca para obtener el tiempo actual
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,9 +58,7 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-
-// aqui defino las formas de las piezas
+// Definición de las formas de las piezas
  uint8_t pieza_1[8] = {
     0b00001111
 };
@@ -157,38 +155,38 @@ int main(void)
   while (1)
   {
 
-	  //aqui lo que hago es gnerar numeros aleatorios de 0 al 7 para seleccionar piezas
+	  // Generar un número aleatorio entre 0 y 6 (inclusive) para seleccionar una pieza
 	      int piezas_ramdom = rand() % 7;
 
-	      // apunto al array de las piezas
+	      // Array de punteros a las piezas
 	      const uint8_t *piezas[] = {pieza_1, pieza_2, pieza_3, pieza_4, pieza_5, pieza_6, pieza_7};
 
-	      //  aqui selecciono una pieza aleatoria del array
+	      // Seleccionar una pieza aleatoria del array
 	      const uint8_t *sel_piezas = piezas[piezas_ramdom];
 
-	      // aqui selecciono  una fila inicial aleatoria
-	      int fila_inicial = 0; //aqui determino sonde inicia la pieza
-	      int columna_inicial = rand() % 6; // aqui de forma aleatoria selecciono un acolumna
+	      // Seleccionar una fila inicial aleatoria
+	      int fila_inicial = 1; // La nueva pieza siempre inicia desde la parte superior
+	      int columna_inicial = rand() % 6; // La columna inicial aleatoria (0-4)
 
-	      //aqui muestrio la pieza y la  hago descender
+	      // Mostrar la pieza y hacerla descender
 	      while (fila_inicial < 8) {
-	          // aqui verifico l aposicion actual y reviso si llego al fondo de l amatriz
+	          // Verificar si la posición actual está ocupada en el tablero o hemos alcanzado el fondo
 	          if (fila_inicial == 8 || matriz_tablero[fila_inicial + 1][columna_inicial] != 0) {
-	              //  aqui Agrego la pieza al tablero en la fila actual
+	              // Agregar la pieza al tablero en la fila actual
 	              for (int i = 0; i < 9; i++) {
 	                  matriz_tablero[fila_inicial][columna_inicial] |= sel_piezas[i];
-	                  fila_inicial--;// aqui retrocedo un afila
+	                  fila_inicial--; // Retroceder una fila
 	              }
-	              break; // y salgo de mi bucle
+	              break; // Salir del bucle
 	          } else {
-	              // aqui muestro la pieza en la pocision actual de l amatriz
+	              // Mostrar la pieza en la posición actual
 	              mostrar_pieza(sel_piezas, fila_inicial);
 
-
+	              // Esperar un momento para simular la velocidad de descenso
 	              HAL_Delay(800);
 
 
-	              // aqui muevo la pieza un afila hacia abajo
+	              // Mover la pieza una fila hacia abajo
 	              fila_inicial++;
 	          }
 	      }
