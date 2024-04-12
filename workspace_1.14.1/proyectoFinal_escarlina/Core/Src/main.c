@@ -105,12 +105,20 @@ uint8_t pieza_5[8] = {
     0b00000000
 };
 
- void mostrar_pieza( uint8_t piezas[8], int fila_inicial) {
-     for (int i = 0; i < 8; i++) {
-         setrow(fila_inicial - i, piezas[i]);
+ void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial)
+ {
+     for (int i = 0; i < 8; i++)
+     {
+         setrow(fila_inicial - i, piezas[i] << columna_inicial);
      }
  }
+
  uint8_t matriz_tablero[8][8] = {0};
+
+int movimiento_piezas=0;
+
+
+
 
 /* USER CODE END 0 */
 
@@ -154,74 +162,58 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
+   while (1)
+   {
+       // Generación aleatoria de piezas, fila inicial y columna inicial
+       int piezas_ramdom = rand() % 7;
+       const uint8_t *piezas[] = {pieza_1, pieza_2, pieza_3, pieza_4, pieza_5, pieza_6, pieza_7};
+       const uint8_t *sel_piezas = piezas[piezas_ramdom];
+       int fila_inicial = 0;
+       int columna_inicial = rand() % 6;
 
-	  //aqui lo que hago es gnerar numeros aleatorios de 0 al 7 para seleccionar piezas
-	      int piezas_ramdom = rand() % 7;
+       while (fila_inicial < 8)
+       {
+           // Muestra la pieza en la posición actual del tablero
+           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+           HAL_Delay(800);
 
-	      // apunto al array de las piezas
-	      const uint8_t *piezas[] = {pieza_1, pieza_2, pieza_3, pieza_4, pieza_5, pieza_6, pieza_7};
+           // Verifica si la pieza ha alcanzado el fondo o una posición ocupada en el tablero
+           if (fila_inicial == 7 || matriz_tablero[fila_inicial + 1][columna_inicial] != 0)
+           {
+               // Agrega la pieza al tablero en la fila actual
+               for (int i = 0; i < 8; i++)
+               {
+                   matriz_tablero[fila_inicial][columna_inicial] |= sel_piezas[i] << columna_inicial;
+                   fila_inicial--;
+               }
+               break; // Sale del bucle
+           }
+           else
+           {
+               fila_inicial++; // Mueve la pieza hacia abajo
+           }
 
-	      //  aqui selecciono una pieza aleatoria del array
-	      const uint8_t *sel_piezas = piezas[piezas_ramdom];
+           // Verifica si se ha presionado un botón para mover la pieza hacia la derecha
+           if (movimiento_piezas > 0)
+           {
+               columna_inicial++;
+               movimiento_piezas = 0; // Reinicia el movimiento
+           }
+           // Verifica si se ha presionado un botón para mover la pieza hacia la izquierda
+           else if (movimiento_piezas < 0)
+           {
+               columna_inicial--;
+               movimiento_piezas = 0; // Reinicia el movimiento
+           }
+       }
 
-	      // aqui selecciono  una fila inicial aleatoria
-	      int fila_inicial = 0; //aqui determino sonde inicia la pieza
+       HAL_Delay(500); // Retardo entre piezas
+   }
 
-
-
-	      int columna_inicial = rand() % 6; // aqui de forma aleatoria selecciono un acolumna
-
-
-	      //aqui muestrio la pieza y la  hago descender
-	      while (fila_inicial < 8) {
-
-
-	          // aqui verifico l aposicion actual y reviso si llego al fondo de l amatriz
-	          if (fila_inicial == 8 || matriz_tablero[fila_inicial + 1][columna_inicial] != 0) {
-	              //  aqui Agrego la pieza al tablero en la fila actual
-
-	        	  for (int i = 0; i < 9; i++) {
-
-	                  matriz_tablero[fila_inicial][columna_inicial] |= sel_piezas[i];
-
-
-	                  fila_inicial--;// aqui retrocedo un afila
-	              }
-
-
-	              break; // y salgo de mi bucle
-	          }
-
-
-
-	          else
-
-
-
-	          {
-
-	        	  // aqui muestro la pieza en la pocision actual de l amatriz
-	              mostrar_pieza(sel_piezas, fila_inicial);
-
-
-	              HAL_Delay(800);
+   }
 
 
-	              // aqui muevo la pieza un afila hacia abajo
-	              fila_inicial++;
-	          }
-	      }
 
-
-	      HAL_Delay(500);
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-  }
-  /* USER CODE END 3 */
-}
 
 /**
   * @brief System Clock Configuration
@@ -315,7 +307,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10|LED_Pin|GPIO_PIN_4|GPIO_PIN_5, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_8, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -323,19 +318,49 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB10 LED_Pin PB4 PB5 */
-  GPIO_InitStruct.Pin = GPIO_PIN_10|LED_Pin|GPIO_PIN_4|GPIO_PIN_5;
+  /*Configure GPIO pins : btn1_Pin btn2_Pin */
+  GPIO_InitStruct.Pin = btn1_Pin|btn2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PC5 PC6 PC8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_8;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LED_Pin */
+  GPIO_InitStruct.Pin = LED_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if (GPIO_Pin == btn1_Pin){
+		movimiento_piezas = 1;
 
+	}
+	if (GPIO_Pin == btn2_Pin){
+		movimiento_piezas = -1;
+
+		}
+}
 /* USER CODE END 4 */
 
 /**

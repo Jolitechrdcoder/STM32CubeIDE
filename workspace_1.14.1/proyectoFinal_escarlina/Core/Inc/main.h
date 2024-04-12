@@ -59,10 +59,17 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
+#define B1_EXTI_IRQn EXTI15_10_IRQn
 #define USART_TX_Pin GPIO_PIN_2
 #define USART_TX_GPIO_Port GPIOA
 #define USART_RX_Pin GPIO_PIN_3
 #define USART_RX_GPIO_Port GPIOA
+#define btn1_Pin GPIO_PIN_5
+#define btn1_GPIO_Port GPIOA
+#define btn1_EXTI_IRQn EXTI9_5_IRQn
+#define btn2_Pin GPIO_PIN_6
+#define btn2_GPIO_Port GPIOA
+#define btn2_EXTI_IRQn EXTI9_5_IRQn
 #define LED_Pin GPIO_PIN_13
 #define LED_GPIO_Port GPIOB
 #define TMS_Pin GPIO_PIN_13

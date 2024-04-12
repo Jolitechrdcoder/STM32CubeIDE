@@ -1,48 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="ULTRA_TIM"/>
+		<item key="selection" value="matriz_tablero"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="board"/>
+			<item value="empty_row"/>
+			<item value="piece_Z"/>
+			<item value="piece_T"/>
+			<item value="piece_S"/>
+			<item value="piece_O"/>
+			<item value="piece_L"/>
+			<item value="piece_j"/>
+			<item value="piece_I"/>
+			<item value="pieces"/>
+			<item value="random_piece"/>
+			<item value="selected_piece"/>
+			<item value="start_col"/>
+			<item value="start_row"/>
 			<item value="Time_ultra_victor"/>
-			<item value="Time_max_victor"/>
-			<item value="Time_adc_victor"/>
-			<item value="Time_key_victor"/>
-			<item value="Time_LCD"/>
-			<item value="Timer"/>
-			<item value="FLAG"/>
-			<item value="SONIC"/>
-			<item value="8x8_victor"/>
-			<item value="MATRIZ"/>
-			<item value="ADC"/>
-			<item value="KEYPAD"/>
-			<item value="LCD2"/>
-			<item value="back"/>
-			<item value="call"/>
 		</list>
 		<list key="replacehistory">
+			<item value="matriz_tablero"/>
+			<item value="limpiar_fila"/>
+			<item value="pieza_7"/>
+			<item value="pieza_6"/>
+			<item value="pieza_5"/>
+			<item value="pieza_4"/>
+			<item value="pieza_3"/>
+			<item value="pieza_2"/>
+			<item value="pieza_1"/>
+			<item value="piezas"/>
+			<item value="piezas_ramdom"/>
+			<item value="sel_piezas"/>
+			<item value="columna_inicial"/>
+			<item value="fila_inicial"/>
 			<item value="ULTRA_TIM"/>
-			<item value="MAX_TIM"/>
-			<item value="ADC_TIM"/>
-			<item value="KEYPAD_TIM"/>
-			<item value="LCD_TIM"/>
-			<item value="Tiempo_base"/>
-			<item value="DATA_COUNTERS"/>
-			<item value="ultra_victor"/>
-			<item value="max_victor"/>
-			<item value="8x8_victor"/>
-			<item value="adc_victor"/>
-			<item value="key_victor"/>
-			<item value="lcd_victor"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="807"/>
-		<item key="DIALOG_Y_ORIGIN" value="268"/>
+		<item key="DIALOG_X_ORIGIN" value="1291"/>
+		<item key="DIALOG_Y_ORIGIN" value="294"/>
 		<item key="DIALOG_WIDTH" value="322"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

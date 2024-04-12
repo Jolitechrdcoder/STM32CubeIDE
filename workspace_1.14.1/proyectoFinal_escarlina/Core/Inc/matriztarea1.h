@@ -4,9 +4,9 @@
 
 // change the max7219 PORT and Pins below
 
-#define maxport GPIOB
-#define data_Pin GPIO_PIN_10
-#define cs_Pin GPIO_PIN_4
+#define maxport GPIOC
+#define data_Pin GPIO_PIN_8
+#define cs_Pin GPIO_PIN_6
 #define clock_Pin GPIO_PIN_5
 
 
