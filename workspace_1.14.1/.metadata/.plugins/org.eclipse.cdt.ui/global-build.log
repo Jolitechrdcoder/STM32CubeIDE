@@ -1,56 +1,151 @@
-20:51:48 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+17:33:04 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:197:26: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  197 |            mostrar_pieza(sel_piezas, fila_inicial);
-      |                          ^~~~~~~~~~
-../Core/Src/main.c:108:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
-  108 |  void mostrar_pieza( uint8_t piezas[8], int fila_inicial) {
-      |                      ~~~~~~~~^~~~~~~~~
-../Core/Src/main.c:265:13: error: invalid storage class for function 'MX_USART2_UART_Init'
-  265 | static void MX_USART2_UART_Init(void)
-      |             ^~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:300:13: error: invalid storage class for function 'MX_GPIO_Init'
-  300 | static void MX_GPIO_Init(void)
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:382:1: error: expected declaration or statement at end of input
-  382 | }
-      | ^
+../Core/Src/main.c:190:28: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  190 |              mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                            ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21752	    168	   2360	  24280	   5ed8	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+17:33:07 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21752	    168	   2360	  24280	   5ed8	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+17:34:15 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:190:28: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  190 |              mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                            ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21752	    168	   2360	  24280	   5ed8	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+17:35:05 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:190:28: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  190 |              mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                            ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21760	    168	   2360	  24288	   5ee0	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+17:37:53 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:190:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  190 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21760	    168	   2360	  24288	   5ee0	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+17:39:44 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:195:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  195 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21784	    168	   2360	  24312	   5ef8	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+17:43:52 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:194:24: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  194 |          mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                        ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
 ../Core/Src/main.c: At top level:
-../Core/Src/main.c:53:13: warning: 'MX_GPIO_Init' used but never defined
-   53 | static void MX_GPIO_Init(void);
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:54:13: warning: 'MX_USART2_UART_Init' used but never defined
-   54 | static void MX_USART2_UART_Init(void);
-      |             ^~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:373:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
-  373 | void Error_Handler(void)
-      |      ^~~~~~~~~~~~~
-../Core/Src/main.c:356:6: warning: 'HAL_GPIO_EXTI_Callback' defined but not used [-Wunused-function]
-  356 | void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-      |      ^~~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:300:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
-  300 | static void MX_GPIO_Init(void)
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:265:13: warning: 'MX_USART2_UART_Init' defined but not used [-Wunused-function]
-  265 | static void MX_USART2_UART_Init(void)
-      |             ^~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:225:6: warning: 'SystemClock_Config' defined but not used [-Wunused-function]
-  225 | void SystemClock_Config(void)
-      |      ^~~~~~~~~~~~~~~~~~
-make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+../Core/Src/main.c:245:2: error: expected identifier or '(' before '}' token
+  245 |  }
+      |  ^
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
 "make -j8 all" terminated with exit code 2. Build might be incomplete.
-20:51:55 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+17:43:59 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:197:26: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  197 |            mostrar_pieza(sel_piezas, fila_inicial);
-      |                          ^~~~~~~~~~
-../Core/Src/main.c:108:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
-  108 |  void mostrar_pieza( uint8_t piezas[8], int fila_inicial) {
-      |                      ~~~~~~~~^~~~~~~~~
+../Core/Src/main.c:194:24: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  194 |          mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                        ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
 arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
 (.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
@@ -59,21 +154,21 @@ Finished building target: proyectoFinal_escarlina.elf
 arm-none-eabi-size  proyectoFinal_escarlina.elf 
 arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
    text	   data	    bss	    dec	    hex	filename
-  16628	    168	   2272	  19068	   4a7c	proyectoFinal_escarlina.elf
+  21896	    168	   2360	  24424	   5f68	proyectoFinal_escarlina.elf
 Finished building: default.size.stdout
  
 Finished building: proyectoFinal_escarlina.list
  
-20:53:51 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+17:44:45 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:197:26: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  197 |            mostrar_pieza(sel_piezas, fila_inicial);
-      |                          ^~~~~~~~~~
-../Core/Src/main.c:108:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
-  108 |  void mostrar_pieza( uint8_t piezas[8], int fila_inicial) {
-      |                      ~~~~~~~~^~~~~~~~~
+../Core/Src/main.c:195:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  195 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
 arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
 (.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
@@ -82,62 +177,43 @@ Finished building target: proyectoFinal_escarlina.elf
 arm-none-eabi-size  proyectoFinal_escarlina.elf 
 arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
    text	   data	    bss	    dec	    hex	filename
-  16628	    168	   2272	  19068	   4a7c	proyectoFinal_escarlina.elf
+  21784	    168	   2360	  24312	   5ef8	proyectoFinal_escarlina.elf
 Finished building: default.size.stdout
  
 Finished building: proyectoFinal_escarlina.list
  
-20:56:43 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+17:46:18 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:184:26: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  184 |            mostrar_pieza(sel_piezas, fila_inicial);
-      |                          ^~~~~~~~~~
-../Core/Src/main.c:108:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
-  108 |  void mostrar_pieza( uint8_t piezas[8], int fila_inicial) {
-      |                      ~~~~~~~~^~~~~~~~~
-arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
-(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
-Finished building target: proyectoFinal_escarlina.elf
- 
-arm-none-eabi-size  proyectoFinal_escarlina.elf 
-arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
-   text	   data	    bss	    dec	    hex	filename
-  16628	    168	   2272	  19068	   4a7c	proyectoFinal_escarlina.elf
-Finished building: default.size.stdout
- 
-Finished building: proyectoFinal_escarlina.list
- 
-20:58:49 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:174:26: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  174 |            mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
-      |                          ^~~~~~~~~~
-../Core/Src/main.c:108:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
-  108 |  void mostrar_pieza( uint8_t piezas[8], int fila_inicial) {
-      |                      ~~~~~~~~^~~~~~~~~
-../Core/Src/main.c:174:12: error: too many arguments to function 'mostrar_pieza'
-  174 |            mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
-      |            ^~~~~~~~~~~~~
-../Core/Src/main.c:108:7: note: declared here
-  108 |  void mostrar_pieza( uint8_t piezas[8], int fila_inicial) {
-      |       ^~~~~~~~~~~~~
-make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+../Core/Src/main.c:195:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  195 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+../Core/Src/main.c:205:21: warning: statement with no effect [-Wunused-value]
+  205 |                score+10;
+      |                ~~~~~^~~
+../Core/Src/main.c:206:16: error: unknown type name 'HA'
+  206 |                HA
+      |                ^~
+../Core/Src/main.c:208:36: error: expected ')' before numeric constant
+  208 |               lcd_enviar_int(score, 1, 7);
+      |                                    ^~
+      |                                    )
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
 "make -j8 all" terminated with exit code 2. Build might be incomplete.
-20:59:17 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+17:46:29 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:177:26: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  177 |            mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
-      |                          ^~~~~~~~~~
-../Core/Src/main.c:108:29: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
-  108 |  void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial)
-      |                     ~~~~~~~~^~~~~~~~~
+../Core/Src/main.c:195:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  195 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
 arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
 (.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
@@ -146,7 +222,574 @@ Finished building target: proyectoFinal_escarlina.elf
 arm-none-eabi-size  proyectoFinal_escarlina.elf 
 arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
    text	   data	    bss	    dec	    hex	filename
-  16632	    168	   2272	  19072	   4a80	proyectoFinal_escarlina.elf
+  21784	    168	   2360	  24312	   5ef8	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+17:49:31 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:196:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  196 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21784	    168	   2360	  24312	   5ef8	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+17:51:21 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:196:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  196 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21784	    168	   2360	  24312	   5ef8	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+17:56:26 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:196:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  196 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21784	    168	   2360	  24312	   5ef8	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+17:58:14 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'verificar_filas_llenas':
+../Core/Src/main.c:118:25: error: 'i' undeclared (first use in this function)
+  118 |       if(matriz_tablero[i] == 2){
+      |                         ^
+../Core/Src/main.c:118:25: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:196:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  196 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:58:27 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:196:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  196 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21784	    168	   2360	  24312	   5ef8	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:00:14 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:196:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  196 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21784	    168	   2360	  24312	   5ef8	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:01:02 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:196:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  196 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21788	    168	   2360	  24316	   5efc	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:03:07 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:197:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  197 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21792	    172	   2364	  24328	   5f08	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:04:25 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:197:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  197 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21796	    172	   2364	  24332	   5f0c	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:05:34 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:198:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  198 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21804	    172	   2364	  24340	   5f14	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:07:02 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:197:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  197 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21796	    168	   2368	  24332	   5f0c	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:08:31 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'reiniciar_juego':
+../Core/Src/main.c:137:5: error: 'filas' undeclared (first use in this function)
+  137 |     filas-completas = 0;
+      |     ^~~~~
+../Core/Src/main.c:137:5: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:137:11: error: 'completas' undeclared (first use in this function)
+  137 |     filas-completas = 0;
+      |           ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:197:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  197 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+18:08:40 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:197:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  197 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21796	    168	   2368	  24332	   5f0c	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:11:49 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:197:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  197 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21776	    168	   2368	  24312	   5ef8	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:12:22 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21776	    168	   2368	  24312	   5ef8	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+18:13:07 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:197:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  197 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21776	    168	   2360	  24304	   5ef0	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:14:45 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:198:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  198 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21776	    168	   2360	  24304	   5ef0	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:17:22 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:200:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  200 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21788	    168	   2368	  24324	   5f04	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:18:19 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:200:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  200 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21792	    168	   2368	  24328	   5f08	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:21:21 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'verificar_filas_llenas':
+../Core/Src/main.c:123:9: error: 'movimirn' undeclared (first use in this function)
+  123 |     if (movimirn > 0) {
+      |         ^~~~~~~~
+../Core/Src/main.c:123:9: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:202:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  202 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+18:21:43 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:202:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  202 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21804	    168	   2368	  24340	   5f14	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:22:59 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:204:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  204 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21852	    168	   2368	  24388	   5f44	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:24:48 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:207:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  207 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21864	    168	   2368	  24400	   5f50	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:25:56 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:208:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  208 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  21876	    168	   2368	  24412	   5f5c	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:28:09 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:220:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  220 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  22072	   1184	   2368	  25624	   6418	proyectoFinal_escarlina.elf
+Finished building: default.size.stdout
+ 
+Finished building: proyectoFinal_escarlina.list
+ 
+18:29:25 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:220:25: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  220 |           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+      |                         ^~~~~~~~~~
+../Core/Src/main.c:85:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
+   85 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+      |                    ~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
+(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
+Finished building target: proyectoFinal_escarlina.elf
+ 
+arm-none-eabi-size  proyectoFinal_escarlina.elf 
+arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+   text	   data	    bss	    dec	    hex	filename
+  22060	   1184	   2368	  25612	   640c	proyectoFinal_escarlina.elf
 Finished building: default.size.stdout
  
 Finished building: proyectoFinal_escarlina.list

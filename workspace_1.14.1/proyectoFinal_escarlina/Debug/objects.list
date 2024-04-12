@@ -1,3 +1,4 @@
+"./Core/Src/lcdjorge.o"
 "./Core/Src/main.o"
 "./Core/Src/matriztarea1.o"
 "./Core/Src/stm32f3xx_hal_msp.o"

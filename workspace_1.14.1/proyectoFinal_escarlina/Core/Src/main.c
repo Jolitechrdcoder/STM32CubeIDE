@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include"matriztarea1.h"
+#include"lcdjorge.h"
 #include <stdlib.h>
 #include <time.h>
 /* USER CODE END Includes */
@@ -42,6 +43,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+I2C_HandleTypeDef hi2c1;
+
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
@@ -52,73 +55,112 @@ UART_HandleTypeDef huart2;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
+static void MX_I2C1_Init(void);
+void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial);
+void mover_pieza_abajo(const uint8_t *pieza, int fila, int columna);
+void verificar_filas_llenas();
+void reiniciar_juego();
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+// Define las formas de las piezas
+uint8_t pieza_1[8] = { 0b00001111 };
+uint8_t pieza_2[8] = { 0b00001000, 0b00001000, 0b00001110 };
+uint8_t pieza_3[8] = { 0b00000100, 0b00000100, 0b00001110 };
+uint8_t pieza_4[8] = { 0b00001100, 0b00001100 };
+uint8_t pieza_5[8] = { 0b00001100, 0b00011000 };
+uint8_t pieza_6[8] = { 0b00001100, 0b00011100 };
+uint8_t pieza_7[8] = { 0b00011000, 0b00001100 };
+
+// Matriz de juego
+uint8_t matriz_tablero[8][8] = { 0 };
+
+// Variables globales
+int movimiento_piezas = 0;
+int score = 0;
+// Función para mostrar la pieza en la matriz de juego
+void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
+    for (int i = 0; i < 8; i++) {
+        setrow(fila_inicial - i, piezas[i] << columna_inicial);
+    }
+}
+
+// Función para mover la pieza hacia abajo en la matriz de juego
+void mover_pieza_abajo(const uint8_t *pieza, int fila, int columna) {
+    for (int i = 0; i < 8; i++) {
+        matriz_tablero[fila][columna] |= pieza[i] << columna;
+        fila--;
+    }
+}
+int puntos =0;
+int fila_llena = 0;
+int filas_completas = 0;
+// Función para verificar si alguna fila está completa y aumentar la puntuación
+void verificar_filas_llenas() {
 
 
-// aqui defino las formas de las piezas
- uint8_t pieza_1[8] = {
-    0b00001111
-};
+    for (int i = 0; i < 8; i++) {
+        fila_llena = 1;
+        for (int j = 0; j < 8; j++) {
+            if (matriz_tablero[i][j] == 0) {
+                fila_llena = 0;
+                puntos++;
+                break;
+            }
+        }
+        if (fila_llena) {
+            filas_completas++; // Incrementa el contador de filas completas
+            // Borra la fila llena
+            for (int j = 0; j < 8; j++) {
+                matriz_tablero[i][j] = 0;
+            }
+        }
+    }
 
- uint8_t pieza_2[8] = {
-    0b00001000,
-    0b00001000,
-    0b00001110
+    if (filas_completas > 0) {
 
-
-};
-
- uint8_t pieza_3[8] = {
-    0b00000100,
-    0b00000100,
-    0b00001110
-
-
-};
-
-uint8_t pieza_4[8] = {
-    0b00001100,
-    0b00001100
-};
-
-uint8_t pieza_5[8] = {
-    0b00001100,
-    0b00011000
-};
-
- uint8_t pieza_6[8] = {
-    0b00001100,
-    0b00011100
-};
-
- uint8_t pieza_7[8] = {
-    0b00011000,
-    0b00001100
-};
-
- uint8_t limpiar_fila[8] = {
-    0b00000000
-};
-
- void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial)
- {
-     for (int i = 0; i < 8; i++)
-     {
-         setrow(fila_inicial - i, piezas[i] << columna_inicial);
-     }
- }
-
- uint8_t matriz_tablero[8][8] = {0};
-
-int movimiento_piezas=0;
+        reiniciar_juego(); // Reinicia el juego si alguna fila está llena
+    }
+}
 
 
+// Función para reiniciar el juego
+void reiniciar_juego() {
+    // Muestra "Game Over" en el LCD
 
+    lcd_enviar("Game Over         ", 0, 0);
+    max_clear();
+    write_char('X', 1);
+    HAL_Delay(500);
+
+    write_char(' ', 1);
+    HAL_Delay(500);
+
+    write_char('X', 1);
+    HAL_Delay(500);
+
+    write_char(' ', 1);
+   HAL_Delay(500);
+    max_clear();
+    HAL_Delay(2000);
+    lcd_clear();
+
+    // Reinicia la matriz
+    for (int k = 0; k < 8; k++) {
+        for (int l = 0; l < 8; l++) {
+            matriz_tablero[k][l] = 0;
+        }
+    }
+    // Reinicia la puntuación
+    puntos = 0;
+    // Muestra la puntuación reiniciada en el LCD
+    lcd_enviar("Tetris Escarlina", 0, 0);
+    lcd_enviar("Score:", 1, 0);
+    lcd_enviar_int(puntos, 1, 7);
+}
 
 /* USER CODE END 0 */
 
@@ -154,66 +196,66 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART2_UART_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
    max_init(0x02);
 
-
+  lcd_init();
+  lcd_enviar("Tetris Escarlina", 0, 0);
+  lcd_enviar("Score:", 1, 0);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-   while (1)
-   {
-       // Generación aleatoria de piezas, fila inicial y columna inicial
-       int piezas_ramdom = rand() % 7;
-       const uint8_t *piezas[] = {pieza_1, pieza_2, pieza_3, pieza_4, pieza_5, pieza_6, pieza_7};
-       const uint8_t *sel_piezas = piezas[piezas_ramdom];
-       int fila_inicial = 0;
-       int columna_inicial = rand() % 6;
+  while (1) {
+      // Generación aleatoria de piezas, fila inicial y columna inicial
+      int piezas_ramdom = rand() % 7;
+      const uint8_t *piezas[] = { pieza_1, pieza_2, pieza_3, pieza_4, pieza_5, pieza_6, pieza_7 };
+      const uint8_t *sel_piezas = piezas[piezas_ramdom];
+      int fila_inicial = 0;
+      int columna_inicial = rand() % 6;
 
-       while (fila_inicial < 8)
-       {
-           // Muestra la pieza en la posición actual del tablero
-           mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
-           HAL_Delay(800);
+      while (fila_inicial < 8) {
+          // Muestra la pieza en la posición actual del tablero
+          mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
+          HAL_Delay(800);
 
-           // Verifica si la pieza ha alcanzado el fondo o una posición ocupada en el tablero
-           if (fila_inicial == 7 || matriz_tablero[fila_inicial + 1][columna_inicial] != 0)
-           {
-               // Agrega la pieza al tablero en la fila actual
-               for (int i = 0; i < 8; i++)
-               {
-                   matriz_tablero[fila_inicial][columna_inicial] |= sel_piezas[i] << columna_inicial;
-                   fila_inicial--;
-               }
-               break; // Sale del bucle
-           }
-           else
-           {
-               fila_inicial++; // Mueve la pieza hacia abajo
-           }
+          // Verifica si la pieza ha alcanzado el fondo o una posición ocupada en el tablero
+          if (fila_inicial == 7 || matriz_tablero[fila_inicial + 1][columna_inicial] != 0) {
+              // Agrega la pieza al tablero en la fila actual
+              mover_pieza_abajo(sel_piezas, fila_inicial, columna_inicial);
 
-           // Verifica si se ha presionado un botón para mover la pieza hacia la derecha
-           if (movimiento_piezas > 0)
-           {
-               columna_inicial++;
-               movimiento_piezas = 0; // Reinicia el movimiento
-           }
-           // Verifica si se ha presionado un botón para mover la pieza hacia la izquierda
-           else if (movimiento_piezas < 0)
-           {
-               columna_inicial--;
-               movimiento_piezas = 0; // Reinicia el movimiento
-           }
-       }
+              // Verifica si alguna fila está completa y aumenta la puntuación en consecuencia
+              verificar_filas_llenas();
 
-       HAL_Delay(500); // Retardo entre piezas
-   }
+              // Muestra la puntuación actualizada en el LCD
+              lcd_enviar_int(puntos, 1, 7);
 
-   }
+              // Verifica si el juego debe reiniciarse
+              if (matriz_tablero[0][columna_inicial] != 0) {
+                  reiniciar_juego();
+              }
 
+              break; // Sale del bucle
+          } else {
+              fila_inicial++; // Mueve la pieza hacia abajo
+          }
 
+          // Verifica si se ha presionado un botón para mover la pieza hacia la derecha
+          if (movimiento_piezas > 0) {
+              columna_inicial++;
+              movimiento_piezas = 0; // Reinicia el movimiento
+          }
+          // Verifica si se ha presionado un botón para mover la pieza hacia la izquierda
+          else if (movimiento_piezas < 0) {
+              columna_inicial--;
+              movimiento_piezas = 0; // Reinicia el movimiento
+          }
+      }
 
+      HAL_Delay(500); // Retardo entre piezas
+  }
+ }
 
 /**
   * @brief System Clock Configuration
@@ -223,14 +265,16 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
@@ -252,6 +296,60 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_I2C1;
+  PeriphClkInit.I2c1ClockSelection = RCC_I2C1CLKSOURCE_HSI;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.Timing = 0x2000090E;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Analogue filter
+  */
+  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Digital filter
+  */
+  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
+
 }
 
 /**
