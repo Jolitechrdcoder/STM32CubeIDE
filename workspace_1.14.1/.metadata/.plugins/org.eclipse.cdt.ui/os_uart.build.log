@@ -1,0 +1,29 @@
+14:57:41 **** Incremental Build of configuration Debug for project os_uart ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Startbombillos':
+../Core/Src/main.c:313:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  313 |           HAL_UART_Transmit(&huart2, (uint8_t*)count,strlen(count), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:313:54: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  313 |           HAL_UART_Transmit(&huart2, (uint8_t*)count,strlen(count), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:313:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "os_uart.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\os_uart\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="os_uart.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: os_uart.elf
+ 
+arm-none-eabi-size  os_uart.elf 
+arm-none-eabi-objdump -h -S os_uart.elf  > "os_uart.list"
+   text	   data	    bss	    dec	    hex	filename
+  20744	    104	   6128	  26976	   6960	os_uart.elf
+Finished building: default.size.stdout
+ 
+Finished building: os_uart.list
+ 
+
+14:57:43 Build Finished. 0 errors, 2 warnings. (took 1s.232ms)
+

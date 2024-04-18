@@ -1,0 +1,10 @@
+18:16:41 **** Incremental Build of configuration Debug for project ultrasonido ****
+make -j8 all 
+arm-none-eabi-size  ultrasonido.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18144	     20	   1868	  20032	   4e40	ultrasonido.elf
+Finished building: default.size.stdout
+ 
+
+18:16:42 Build Finished. 0 errors, 0 warnings. (took 304ms)
+
