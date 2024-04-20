@@ -1,0 +1,17 @@
+16:20:31 **** Incremental Build of configuration Debug for project dht11_jorge ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "dht11_jorge.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\dht11_jorge\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="dht11_jorge.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: dht11_jorge.elf
+ 
+arm-none-eabi-size  dht11_jorge.elf 
+arm-none-eabi-objdump -h -S dht11_jorge.elf  > "dht11_jorge.list"
+   text	   data	    bss	    dec	    hex	filename
+  17336	     20	   1812	  19168	   4ae0	dht11_jorge.elf
+Finished building: default.size.stdout
+ 
+Finished building: dht11_jorge.list
+ 
+
+16:20:32 Build Finished. 0 errors, 0 warnings. (took 1s.176ms)
+

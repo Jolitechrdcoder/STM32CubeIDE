@@ -1,15 +1,71 @@
-18:16:41 **** Incremental Build of configuration Debug for project ultrasonido ****
+16:19:11 **** Incremental Build of configuration Debug for project dht11_jorge ****
 make -j8 all 
-arm-none-eabi-size  ultrasonido.elf 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:262,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Core/Src/main.c: In function 'DHT11_Start':
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h:92:36: warning: passing argument 2 of 'HAL_GPIO_Init' makes pointer from integer without a cast [-Wint-conversion]
+   92 | #define GPIO_PIN_9                 ((uint16_t)0x0200)  /* Pin 9 selected    */
+      |                                    ^~~~~~~~~~~~~~~~~~
+      |                                    |
+      |                                    short unsigned int
+../Core/Src/main.c:64:19: note: in expansion of macro 'GPIO_PIN_9'
+   64 | #define DHT11_PIN GPIO_PIN_9
+      |                   ^~~~~~~~~~
+../Core/Src/main.c:78:29: note: in expansion of macro 'DHT11_PIN'
+   78 |   HAL_GPIO_Init(DHT11_PORT, DHT11_PIN); // set the pin as input
+      |                             ^~~~~~~~~
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:262,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h:283:73: note: expected 'GPIO_InitTypeDef *' but argument is of type 'short unsigned int'
+  283 | void              HAL_GPIO_Init(GPIO_TypeDef  *GPIOx, GPIO_InitTypeDef *GPIO_Init);
+      |                                                       ~~~~~~~~~~~~~~~~~~^~~~~~~~~
+arm-none-eabi-gcc -o "dht11_jorge.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\dht11_jorge\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="dht11_jorge.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: dht11_jorge.elf
+ 
+arm-none-eabi-size  dht11_jorge.elf 
+arm-none-eabi-objdump -h -S dht11_jorge.elf  > "dht11_jorge.list"
    text	   data	    bss	    dec	    hex	filename
-  18144	     20	   1868	  20032	   4e40	ultrasonido.elf
+  16936	     20	   1788	  18744	   4938	dht11_jorge.elf
 Finished building: default.size.stdout
  
-19:31:42 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+Finished building: dht11_jorge.list
+ 
+16:19:16 **** Incremental Build of configuration Debug for project dht11_jorge ****
+make -j8 all 
+arm-none-eabi-size  dht11_jorge.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16936	     20	   1788	  18744	   4938	dht11_jorge.elf
+Finished building: default.size.stdout
+ 
+16:20:00 **** Incremental Build of configuration Debug for project dht11_jorge ****
+make -j8 all 
+arm-none-eabi-size  dht11_jorge.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16936	     20	   1788	  18744	   4938	dht11_jorge.elf
+Finished building: default.size.stdout
+ 
+16:20:31 **** Incremental Build of configuration Debug for project dht11_jorge ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "dht11_jorge.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\dht11_jorge\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="dht11_jorge.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: dht11_jorge.elf
+ 
+arm-none-eabi-size  dht11_jorge.elf 
+arm-none-eabi-objdump -h -S dht11_jorge.elf  > "dht11_jorge.list"
+   text	   data	    bss	    dec	    hex	filename
+  17336	     20	   1812	  19168	   4ae0	dht11_jorge.elf
+Finished building: default.size.stdout
+ 
+Finished building: dht11_jorge.list
+ 
+19:00:10 **** Build of configuration Debug for project botones_interrupciones ****
 make -j8 all 
 arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o"
-arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o"
-arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o"
 arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o"
 arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o"
 arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_exti.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_exti.o"
@@ -26,188 +82,158 @@ arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim.c" -mcp
 arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.o"
 arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o"
 arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart_ex.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart_ex.o"
-arm-none-eabi-gcc "../Core/Src/lcdjorge.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/lcdjorge.d" -MT"Core/Src/lcdjorge.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/lcdjorge.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32f302r8tx.d" -MT"Core/Startup/startup_stm32f302r8tx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Startup/startup_stm32f302r8tx.o" "../Core/Startup/startup_stm32f302r8tx.s"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/matriztarea1.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/matriztarea1.d" -MT"Core/Src/matriztarea1.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/matriztarea1.o"
 arm-none-eabi-gcc "../Core/Src/stm32f3xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f3xx_hal_msp.d" -MT"Core/Src/stm32f3xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f3xx_hal_msp.o"
 arm-none-eabi-gcc "../Core/Src/stm32f3xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f3xx_it.d" -MT"Core/Src/stm32f3xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f3xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
 arm-none-eabi-gcc "../Core/Src/system_stm32f3xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f3xx.d" -MT"Core/Src/system_stm32f3xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f3xx.o"
-../Core/Src/lcdjorge.c: In function 'lcd_enviar_int':
-../Core/Src/lcdjorge.c:70:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
-   70 |     sprintf(buffer, "%d", numero);
-      |     ^~~~~~~
-../Core/Src/lcdjorge.c:5:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-    4 | #include "lcdjorge.h"
-  +++ |+#include <stdio.h>
-    5 | extern I2C_HandleTypeDef hi2c1;  // change your handler here accordingly
-../Core/Src/lcdjorge.c:70:5: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
-   70 |     sprintf(buffer, "%d", numero);
-      |     ^~~~~~~
-../Core/Src/lcdjorge.c:70:5: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-../Core/Src/main.c: In function 'verificar_filas_llenas':
-../Core/Src/main.c:126:9: warning: implicit declaration of function 'reiniciar_juego' [-Wimplicit-function-declaration]
-  126 |         reiniciar_juego(); // Reinicia el juego si alguna fila está llena
-      |         ^~~~~~~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:132:6: warning: conflicting types for 'reiniciar_juego'; have 'void()'
-  132 | void reiniciar_juego() {
-      |      ^~~~~~~~~~~~~~~
-../Core/Src/main.c:126:9: note: previous implicit declaration of 'reiniciar_juego' with type 'void()'
-  126 |         reiniciar_juego(); // Reinicia el juego si alguna fila está llena
-      |         ^~~~~~~~~~~~~~~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:225:27: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  225 |             mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
-      |                           ^~~~~~~~~~
-../Core/Src/main.c:86:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
-   86 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
-      |                    ~~~~~~~~^~~~~~~~~
-arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
-(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
-Finished building target: proyectoFinal_escarlina.elf
+arm-none-eabi-gcc -o "botones_interrupciones.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\botones_interrupciones\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="botones_interrupciones.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: botones_interrupciones.elf
  
-arm-none-eabi-size  proyectoFinal_escarlina.elf 
-arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+arm-none-eabi-size  botones_interrupciones.elf 
+arm-none-eabi-objdump -h -S botones_interrupciones.elf  > "botones_interrupciones.list"
    text	   data	    bss	    dec	    hex	filename
-  26520	   1184	   2520	  30224	   7610	proyectoFinal_escarlina.elf
+  10428	     20	   1708	  12156	   2f7c	botones_interrupciones.elf
 Finished building: default.size.stdout
  
-Finished building: proyectoFinal_escarlina.list
+Finished building: botones_interrupciones.list
  
-19:35:14 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+19:00:19 **** Incremental Build of configuration Debug for project botones_interrupciones ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'verificar_filas_llenas':
-../Core/Src/main.c:126:9: warning: implicit declaration of function 'reiniciar_juego' [-Wimplicit-function-declaration]
-  126 |         reiniciar_juego(); // Reinicia el juego si alguna fila está llena
-      |         ^~~~~~~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:132:6: warning: conflicting types for 'reiniciar_juego'; have 'void()'
-  132 | void reiniciar_juego() {
-      |      ^~~~~~~~~~~~~~~
-../Core/Src/main.c:126:9: note: previous implicit declaration of 'reiniciar_juego' with type 'void()'
-  126 |         reiniciar_juego(); // Reinicia el juego si alguna fila está llena
-      |         ^~~~~~~~~~~~~~~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:229:27: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  229 |             mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
-      |                           ^~~~~~~~~~
-../Core/Src/main.c:86:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
-   86 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
-      |                    ~~~~~~~~^~~~~~~~~
-arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
-(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
-Finished building target: proyectoFinal_escarlina.elf
+arm-none-eabi-gcc -o "botones_interrupciones.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\botones_interrupciones\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="botones_interrupciones.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: botones_interrupciones.elf
  
-arm-none-eabi-size  proyectoFinal_escarlina.elf 
-arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+arm-none-eabi-size  botones_interrupciones.elf 
+arm-none-eabi-objdump -h -S botones_interrupciones.elf  > "botones_interrupciones.list"
    text	   data	    bss	    dec	    hex	filename
-  26532	   1184	   2520	  30236	   761c	proyectoFinal_escarlina.elf
+  10496	     20	   1724	  12240	   2fd0	botones_interrupciones.elf
 Finished building: default.size.stdout
  
-Finished building: proyectoFinal_escarlina.list
+Finished building: botones_interrupciones.list
  
-19:37:43 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+19:02:35 **** Incremental Build of configuration Debug for project botones_interrupciones ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'verificar_filas_llenas':
-../Core/Src/main.c:126:9: warning: implicit declaration of function 'reiniciar_juego' [-Wimplicit-function-declaration]
-  126 |         reiniciar_juego(); // Reinicia el juego si alguna fila está llena
-      |         ^~~~~~~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:132:6: warning: conflicting types for 'reiniciar_juego'; have 'void()'
-  132 | void reiniciar_juego() {
-      |      ^~~~~~~~~~~~~~~
-../Core/Src/main.c:126:9: note: previous implicit declaration of 'reiniciar_juego' with type 'void()'
-  126 |         reiniciar_juego(); // Reinicia el juego si alguna fila está llena
-      |         ^~~~~~~~~~~~~~~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:227:27: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  227 |             mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
-      |                           ^~~~~~~~~~
-../Core/Src/main.c:86:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
-   86 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
-      |                    ~~~~~~~~^~~~~~~~~
-arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
-(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
-Finished building target: proyectoFinal_escarlina.elf
+arm-none-eabi-gcc -o "botones_interrupciones.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\botones_interrupciones\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="botones_interrupciones.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: botones_interrupciones.elf
  
-arm-none-eabi-size  proyectoFinal_escarlina.elf 
-arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+arm-none-eabi-size  botones_interrupciones.elf 
+arm-none-eabi-objdump -h -S botones_interrupciones.elf  > "botones_interrupciones.list"
    text	   data	    bss	    dec	    hex	filename
-  26544	   1184	   2520	  30248	   7628	proyectoFinal_escarlina.elf
+  10488	     20	   1716	  12224	   2fc0	botones_interrupciones.elf
 Finished building: default.size.stdout
  
-Finished building: proyectoFinal_escarlina.list
+Finished building: botones_interrupciones.list
  
-19:38:55 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+19:03:09 **** Incremental Build of configuration Debug for project botones_interrupciones ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'verificar_filas_llenas':
-../Core/Src/main.c:126:9: warning: implicit declaration of function 'reiniciar_juego' [-Wimplicit-function-declaration]
-  126 |         reiniciar_juego(); // Reinicia el juego si alguna fila está llena
-      |         ^~~~~~~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:132:6: warning: conflicting types for 'reiniciar_juego'; have 'void()'
-  132 | void reiniciar_juego() {
-      |      ^~~~~~~~~~~~~~~
-../Core/Src/main.c:126:9: note: previous implicit declaration of 'reiniciar_juego' with type 'void()'
-  126 |         reiniciar_juego(); // Reinicia el juego si alguna fila está llena
-      |         ^~~~~~~~~~~~~~~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:232:27: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  232 |             mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
-      |                           ^~~~~~~~~~
-../Core/Src/main.c:86:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
-   86 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
-      |                    ~~~~~~~~^~~~~~~~~
-arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
-(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
-Finished building target: proyectoFinal_escarlina.elf
+arm-none-eabi-gcc -o "botones_interrupciones.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\botones_interrupciones\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="botones_interrupciones.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: botones_interrupciones.elf
  
-arm-none-eabi-size  proyectoFinal_escarlina.elf 
-arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+arm-none-eabi-size  botones_interrupciones.elf 
+arm-none-eabi-objdump -h -S botones_interrupciones.elf  > "botones_interrupciones.list"
    text	   data	    bss	    dec	    hex	filename
-  26564	   1184	   2520	  30268	   763c	proyectoFinal_escarlina.elf
+  10488	     20	   1716	  12224	   2fc0	botones_interrupciones.elf
 Finished building: default.size.stdout
  
-Finished building: proyectoFinal_escarlina.list
+Finished building: botones_interrupciones.list
  
-19:51:37 **** Incremental Build of configuration Debug for project proyectoFinal_escarlina ****
+19:05:36 **** Incremental Build of configuration Debug for project botones_interrupciones ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'verificar_filas_llenas':
-../Core/Src/main.c:135:9: warning: implicit declaration of function 'reiniciar_juego' [-Wimplicit-function-declaration]
-  135 |         reiniciar_juego(); //reinicio el juego si se lleno cualquiera de las filas
-      |         ^~~~~~~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:141:6: warning: conflicting types for 'reiniciar_juego'; have 'void()'
-  141 | void reiniciar_juego() {
-      |      ^~~~~~~~~~~~~~~
-../Core/Src/main.c:135:9: note: previous implicit declaration of 'reiniciar_juego' with type 'void()'
-  135 |         reiniciar_juego(); //reinicio el juego si se lleno cualquiera de las filas
-      |         ^~~~~~~~~~~~~~~
-../Core/Src/main.c: In function 'programa_principal':
-../Core/Src/main.c:191:35: warning: passing argument 1 of 'mostrar_pieza' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  191 |                     mostrar_pieza(sel_piezas, fila_inicial, columna_inicial);
-      |                                   ^~~~~~~~~~
-../Core/Src/main.c:96:28: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint8_t *' {aka 'const unsigned char *'}
-   96 | void mostrar_pieza(uint8_t piezas[8], int fila_inicial, int columna_inicial) {
-      |                    ~~~~~~~~^~~~~~~~~
-arm-none-eabi-gcc -o "proyectoFinal_escarlina.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\proyectoFinal_escarlina\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="proyectoFinal_escarlina.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-gettimeofdayr.o): in function `_gettimeofday_r':
-(.text._gettimeofday_r+0xe): warning: _gettimeofday is not implemented and will always fail
-Finished building target: proyectoFinal_escarlina.elf
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:236:3: error: 'counterOutside' undeclared (first use in this function)
+  236 |   counterOutside++; //For testing only
+      |   ^~~~~~~~~~~~~~
+../Core/Src/main.c:236:3: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:237:3: error: 'currentMillis' undeclared (first use in this function)
+  237 |   currentMillis = HAL_GetTick();
+      |   ^~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+19:05:45 **** Incremental Build of configuration Debug for project botones_interrupciones ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "botones_interrupciones.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\botones_interrupciones\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="botones_interrupciones.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: botones_interrupciones.elf
  
-arm-none-eabi-size  proyectoFinal_escarlina.elf 
-arm-none-eabi-objdump -h -S proyectoFinal_escarlina.elf  > "proyectoFinal_escarlina.list"
+arm-none-eabi-size  botones_interrupciones.elf 
+arm-none-eabi-objdump -h -S botones_interrupciones.elf  > "botones_interrupciones.list"
    text	   data	    bss	    dec	    hex	filename
-  26584	   1184	   2520	  30288	   7650	proyectoFinal_escarlina.elf
+  10548	     20	   1708	  12276	   2ff4	botones_interrupciones.elf
 Finished building: default.size.stdout
  
-Finished building: proyectoFinal_escarlina.list
+Finished building: botones_interrupciones.list
+ 
+19:07:17 **** Incremental Build of configuration Debug for project botones_interrupciones ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "botones_interrupciones.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\botones_interrupciones\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="botones_interrupciones.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: botones_interrupciones.elf
+ 
+arm-none-eabi-size  botones_interrupciones.elf 
+arm-none-eabi-objdump -h -S botones_interrupciones.elf  > "botones_interrupciones.list"
+   text	   data	    bss	    dec	    hex	filename
+  10464	     20	   1708	  12192	   2fa0	botones_interrupciones.elf
+Finished building: default.size.stdout
+ 
+Finished building: botones_interrupciones.list
+ 
+19:10:43 **** Incremental Build of configuration Debug for project botones_interrupciones ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:11: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+  101 |           if(flag1 ==1 ) c1++; HAL_Delay(600);
+      |           ^~
+../Core/Src/main.c:101:32: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+  101 |           if(flag1 ==1 ) c1++; HAL_Delay(600);
+      |                                ^~~~~~~~~
+../Core/Src/main.c:102:11: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+  102 |           if(flag2 ==1 ) c1--; HAL_Delay(600);
+      |           ^~
+../Core/Src/main.c:102:32: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+  102 |           if(flag2 ==1 ) c1--; HAL_Delay(600);
+      |                                ^~~~~~~~~
+arm-none-eabi-gcc -o "botones_interrupciones.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\botones_interrupciones\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="botones_interrupciones.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: botones_interrupciones.elf
+ 
+arm-none-eabi-size  botones_interrupciones.elf 
+arm-none-eabi-objdump -h -S botones_interrupciones.elf  > "botones_interrupciones.list"
+   text	   data	    bss	    dec	    hex	filename
+  10600	     20	   1716	  12336	   3030	botones_interrupciones.elf
+Finished building: default.size.stdout
+ 
+Finished building: botones_interrupciones.list
+ 
+19:12:32 **** Incremental Build of configuration Debug for project botones_interrupciones ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:11: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+  101 |           if(flag1 ==1 ) c1++; flag1=0; HAL_Delay(600);
+      |           ^~
+../Core/Src/main.c:101:32: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+  101 |           if(flag1 ==1 ) c1++; flag1=0; HAL_Delay(600);
+      |                                ^~~~~
+../Core/Src/main.c:102:11: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+  102 |           if(flag2 ==1 ) c1--; flag2=0;HAL_Delay(600);
+      |           ^~
+../Core/Src/main.c:102:32: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+  102 |           if(flag2 ==1 ) c1--; flag2=0;HAL_Delay(600);
+      |                                ^~~~~
+arm-none-eabi-gcc -o "botones_interrupciones.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mecat\Documents\GitHub\STM32CubeIDE\workspace_1.14.1\botones_interrupciones\STM32F302R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="botones_interrupciones.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: botones_interrupciones.elf
+ 
+arm-none-eabi-size  botones_interrupciones.elf 
+arm-none-eabi-objdump -h -S botones_interrupciones.elf  > "botones_interrupciones.list"
+   text	   data	    bss	    dec	    hex	filename
+  10612	     20	   1716	  12348	   303c	botones_interrupciones.elf
+Finished building: default.size.stdout
+ 
+Finished building: botones_interrupciones.list
  

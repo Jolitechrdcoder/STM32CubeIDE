@@ -1,0 +1,15 @@
+/*
+ * DHT11JORGE.h
+ *
+ *  Created on: Apr 20, 2024
+ *      Author: mecat
+ */
+
+#ifndef INC_DHT11JORGE_H_
+#define INC_DHT11JORGE_H_
+#define DHT11_PORT GPIOB
+#define DHT11_PIN GPIO_PIN_9
+uint8_t DHT11_Start (void);
+uint8_t DHT11_Read (void);
+
+#endif /* INC_DHT11JORGE_H_ */
