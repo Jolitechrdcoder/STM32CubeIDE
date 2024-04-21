@@ -16,6 +16,7 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:adc12bits\ Debug/activeLaunchTa
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:asignacion_tiempos\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:asignacion_tiempos\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:botones_interrupciones\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:botones_interrupciones\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:dht11_jorge\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:dht11_jorge\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:freertos_jorge\ Debug/activeLaunchMode=debug

@@ -84,7 +84,7 @@
                 <tags>categoryTag:General</tags>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_kU58Sv9fEe6WD6S4pvREwg" containerData="7500" selectedElement="_kU58Uf9fEe6WD6S4pvREwg">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_kU58Sv9fEe6WD6S4pvREwg" containerData="7500" selectedElement="_kU58S_9fEe6WD6S4pvREwg">
               <children xsi:type="basic:PartSashContainer" xmi:id="_kU58S_9fEe6WD6S4pvREwg" containerData="7500" selectedElement="_kU58TP9fEe6WD6S4pvREwg" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_kU58TP9fEe6WD6S4pvREwg" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_kU6jff9fEe6WD6S4pvREwg"/>
                 <children xsi:type="basic:PartStack" xmi:id="_kU58Tf9fEe6WD6S4pvREwg" elementId="topRight" containerData="2500" selectedElement="_kU58Tv9fEe6WD6S4pvREwg">
@@ -449,7 +449,7 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_kU6j4_9fEe6WD6S4pvREwg" elementId="org.eclipse.ui.views.ProblemView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Problems" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/problems_view.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.views.markers.ProblemsView"/>
       <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.ui.ide"/>
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot; categoryGroup=&quot;org.eclipse.ui.ide.severity&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.problemsGenerator&quot; partName=&quot;Problems&quot;>&#xD;&#xA;&lt;expanded>&#xD;&#xA;&lt;category IMemento.internal.id=&quot;Errors&quot;/>&#xD;&#xA;&lt;category IMemento.internal.id=&quot;Errors (2 items)&quot;/>&#xD;&#xA;&lt;category IMemento.internal.id=&quot;Infos&quot;/>&#xD;&#xA;&lt;category IMemento.internal.id=&quot;Warnings&quot;/>&#xD;&#xA;&lt;/expanded>&#xD;&#xA;&lt;columnWidths org.eclipse.ui.ide.locationField=&quot;90&quot; org.eclipse.ui.ide.markerType=&quot;90&quot; org.eclipse.ui.ide.pathField=&quot;120&quot; org.eclipse.ui.ide.resourceField=&quot;90&quot; org.eclipse.ui.ide.severityAndDescriptionField=&quot;300&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xD;&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot; categoryGroup=&quot;org.eclipse.ui.ide.severity&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.problemsGenerator&quot; partName=&quot;Problems&quot;>&#xD;&#xA;&lt;columnWidths org.eclipse.ui.ide.locationField=&quot;90&quot; org.eclipse.ui.ide.markerType=&quot;90&quot; org.eclipse.ui.ide.pathField=&quot;120&quot; org.eclipse.ui.ide.resourceField=&quot;90&quot; org.eclipse.ui.ide.severityAndDescriptionField=&quot;300&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
       <menus xmi:id="_kU6j5P9fEe6WD6S4pvREwg" elementId="org.eclipse.ui.views.ProblemView">
@@ -741,7 +741,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_kU6lX_9fEe6WD6S4pvREwg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_ZU1roP9gEe6lN-m2BGyVQA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_kU70v_9fEe6WD6S4pvREwg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_rN8DEP9_Ee66DqRKW1Vj1A" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_kU70v_9fEe6WD6S4pvREwg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_kU6lb_9fEe6WD6S4pvREwg" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -749,8 +749,8 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_kU6lcf9fEe6WD6S4pvREwg" elementId="org.eclipse.ui.workbench.edit">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_ZU4H4P9gEe6lN-m2BGyVQA" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.png" tooltip="Undo" enabled="false" command="_kU70rf9fEe6WD6S4pvREwg"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_ZU4H4f9gEe6lN-m2BGyVQA" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.png" tooltip="Redo" enabled="false" command="_kU71UP9fEe6WD6S4pvREwg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_rN_GYP9_Ee66DqRKW1Vj1A" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.png" tooltip="Undo" enabled="false" command="_kU70rf9fEe6WD6S4pvREwg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_rOAUgP9_Ee66DqRKW1Vj1A" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.png" tooltip="Redo" enabled="false" command="_kU71UP9fEe6WD6S4pvREwg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_kU6lef9fEe6WD6S4pvREwg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -774,7 +774,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_kU6lw_9fEe6WD6S4pvREwg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_ZU5WAP9gEe6lN-m2BGyVQA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_kU70Y_9fEe6WD6S4pvREwg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_rOCJsP9_Ee66DqRKW1Vj1A" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_kU70Y_9fEe6WD6S4pvREwg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_kU6l0f9fEe6WD6S4pvREwg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
